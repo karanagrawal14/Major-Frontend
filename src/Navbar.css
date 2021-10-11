@@ -1,0 +1,11 @@
+.top{
+    height: 10vh;
+    position: relative;
+}
+.nav{
+    display: flex;
+    color: white;
+   width: 100vw;
+     background-color: rgb(112, 109, 109);
+     font-weight: bold,
+   }

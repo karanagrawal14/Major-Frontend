@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+This Folder contains all the front end part of the application.
+IT can be started using npm start command.
+
+This Application helps in management of books, it displays the number of books present in the store, User can issue any book, it reduces the number of copies of the book and Admin can increment the number of copies of any book present the store.
+Admin can also add a new book into the store.
