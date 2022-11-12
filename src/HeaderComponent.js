@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron,Button,Modal,ModalHeader,ModalBody,Form,FormGroup,Input,Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import logo from './assets/logo.png'
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -40,7 +41,7 @@ class Header extends Component {
                 <Navbar dark expand="md">
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav} />
-                        <NavbarBrand className="mr-auto" href="/"><img src='assets/images/logo.png' height="30" width="41" alt='SGSITS' /></NavbarBrand>
+                        <NavbarBrand className="mr-auto" href="/"><img src={logo} height="30" width="41" alt='SGSITS' /></NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                             <NavItem>
@@ -73,7 +74,7 @@ class Header extends Component {
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
                                 <h1>SGSITS</h1>
-                                <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
+                                <p>Shri Govindram Seksaria Institute of Technology and Science, formerly known as Govindram Seksaria Technological Institute, is a institute of technology located in Indore, Madhya Pradesh, India.</p>
                             </div>
                         </div>
                     </div>

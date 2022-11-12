@@ -7,7 +7,7 @@ import Admin  from './Admin';
 import Login  from './login';
 import Signup from './Signup';
 import Header from './HeaderComponent';
-import Home from './HomeComponent';
+import Home from './StudentComponent';
 import ProtectedRoute2 from './ProtectedRoute2';
 import Footer from './FooterComponent';
 import Contact from './ContactComponent';
