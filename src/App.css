@@ -61,6 +61,10 @@
   margin:0px auto;
   background-color: black ;
   color:black;
+  /* text-align: center; */
+  display: flex,
+ /* alignItems: center, */
+        /* justifyContent: center, */
 }
 
 address{

@@ -45,7 +45,7 @@ class Header extends Component {
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                             <NavItem>
-                                <NavLink className="nav-link"  to='/home'><span className="fa fa-home fa-lg"></span> Home</NavLink>
+                                <NavLink className="nav-link"  to='/home'><span className="fa fa-home fa-lg"></span> Student</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className="nav-link" to='/aboutus'><span className="fa fa-info fa-lg"></span> About Us</NavLink>
@@ -56,13 +56,16 @@ class Header extends Component {
                             <NavItem>
                                 <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact Us</NavLink>
                             </NavItem>
-                            <NavItem>
+                            {/* <NavItem>
                                 <NavLink className="nav-link" to='/signup'><span className="fa fa-address-card fa-lg"></span> Signup</NavLink>
-                            </NavItem>
+                            </NavItem> */}
                             </Nav>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
                                     <Button outline onClick={this.toggleModal}><span className="fa fa-sign-in fa-lg"></span> Login</Button>
+                                </NavItem>
+                                <NavItem>
+                                <NavLink className="nav-link" to='/signup'><span className="fa fa-address-card fa-lg"></span> Signup</NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>
