@@ -36,9 +36,9 @@ class Header extends Component {
     }
     render() {
         return(
-            <React.Fragment>
+            <div className="header">
                 
-                <Navbar dark expand="md">
+                <Navbar   dark expand="md">
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/"><img src={logo} height="30" width="41" alt='SGSITS' /></NavbarBrand>
@@ -107,7 +107,7 @@ class Header extends Component {
                         </Form>
                     </ModalBody>
                 </Modal>
-            </React.Fragment>
+            </div>
         );
     }
 }
