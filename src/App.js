@@ -13,6 +13,7 @@ import Footer from './FooterComponent';
 import Contact from './ContactComponent';
 import Main from './MainPage.js';
 import About from './AboutComponent.js';
+import Teacher from './TeacherComponent';
 function App() {
   return (
     <div className="App">
@@ -28,6 +29,7 @@ function App() {
         <Route exact path="/login"><Login/></Route>
         <ProtectedRoute2 exact path="/admin" component={Admin} />
         <ProtectedRoute2 exact path="/books" component={Application}/>
+        <Route exact path ='/teacher' component={Teacher}/>
 
         <Route exact path='/contactus'  />
       </Switch>
