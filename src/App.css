@@ -1,3 +1,11 @@
+.hod{
+  margin: auto !important;
+  width: 38% !important;
+  border: 2px solid !important;
+  border-radius: 200px !important;
+  /* margin:20px; */
+ }
+ 
 .App {
   text-align: center;
 }
@@ -61,10 +69,27 @@
   background-color: #D1C4E9;
   margin:0px auto;
   padding: 20px 0px 20px 0px;
+  /* position: sticky; */
   left: 0;
-  bottom: 0;
-  width: 100%;
+  bottom: 0vh;
+  /* width: 100%; */
+  /* background-color: red; */
+  /* color: white; */
+  /* text-align: center; */
 }
+.intro{
+  border: none;
+  color: grey;
+  /* display: flex; */
+  top:auto;
+  margin-top: auto;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .jumbotron {
   padding:70px 30px 70px 30px;
   margin:0px auto;
@@ -105,4 +130,24 @@ address{
   opacity: 0.01;
   transform: translateX(100%);
   transition: all 300ms ease-out;
+}
+/* .img{
+  margin: 20px;
+} */
+.first{
+  margin: 40px;
+}
+.fimage{
+  width: 50%;
+  border: 2px solid black;
+  border-radius: 70px;
+}
+.fbody{
+  text-align: initial;
+}
+p{
+ margin-bottom: 0rem !important; 
+}
+.card-img{
+  height: 250px;
 }

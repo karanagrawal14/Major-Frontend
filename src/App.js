@@ -13,6 +13,7 @@ import ProtectedRoute2 from './ProtectedRoute2';
 import Footer from './FooterComponent';
 import Contact from './ContactComponent';
 import Main from './MainPage.js';
+import About from './AboutComponent.js';
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/admin" component={Admin}/>
         <Route exact path="/signup" component={Signup}/>
         <Route exact path="/login"><Login/></Route>
+        <Route exact path="/aboutus" component={About}/>
         <Route exact path='/contactus'  />
       </Switch>
       <Footer/>

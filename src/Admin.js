@@ -22,6 +22,7 @@ class Admin extends React.Component{
         this.nameChange = this.nameChange.bind(this);
         this.yearChange = this.yearChange.bind(this);
         this.copyChange = this.copyChange.bind(this);
+        this.fileChange = this.fileChange.bind(this);
         this.authorChange = this.authorChange.bind(this);
         this.toggleModel = this.toggleModel.bind(this);
         this.addCopy=this.addCopy.bind(this);
@@ -35,6 +36,10 @@ nameChange(e){
 }
 copyChange(e){
   this.setState({copies:e.target.value});
+}
+fileChange(e){
+  alert("File Added Successfully");
+  this.toggleModel();
 }
 yearChange(e){
   this.setState({pub_year:e.target.value});
@@ -160,7 +165,8 @@ contentLabel="My dialog"
     <div><input style={{ width: '100%', borderRadius: 2, border: 0, height: '3vw', marginTop: 2, backgroundColor: '#f5f5f0', fontSize: '1.5vw' }} type="text" id="pub_year" name="pub_year" onChange={this.yearChange}/></div></div>
     <div style={{ width: '100%', textAlign: 'left', fontSize: '1.5vw', marginTop: '2px' }}><label for="copies">No. of Copies</label>
     <div><input style={{ width: '100%', borderRadius: 2, border: 0, height: '3vw', marginTop: 2, backgroundColor: '#f5f5f0', fontSize: '1.5vw' }} type="text" id="copies" name="copies" onChange={this.copyChange} /></div></div>
-  
+    <div style={{ width: '100%', textAlign: 'left', fontSize: '1.5vw', marginTop: '2px' }}><label for="copies">Upload file</label>
+    <div><input style={{ width: '100%', borderRadius: 2, border: 0, height: '3vw', marginTop: 2, backgroundColor: '#f5f5f0', fontSize: '1.5vw' }} type="file" id="file" name="file" onChange={this.fileChange} /></div></div>
   <input type="submit" value="Add" onClick={(e) => this.addBook(e)} style={{
     backgroundColor: '#D8EF04',
     marginTop: 8,
