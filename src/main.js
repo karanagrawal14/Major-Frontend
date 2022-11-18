@@ -92,52 +92,9 @@ class Application extends React.Component {
     this.setState({ search_array: filtered });
   }
   render() {
-    // const em = localStorage.getItem("email");
     return (
       <div>
-        {/* <div className="top">
-          {" "}
-          <div
-            style={{
-              position: "absolute",
-              display: "flex",
-              width: "100vw",
-              backgroundColor: "#0b0b0b",
-              fontSize: "2vh",
-              fontWeight: "bold",
-              color: "white",
-              height: "10vh",
-            }}
-          >
-            <div style={{ display: "flex" }}>
-              <div
-                style={{
-                  marginTop: "1.5vw",
-                  marginBottom: "1.5vw",
-                  marginLeft: "10vw",
-                  cursor: "pointer",
-                }}
-              >
-                {em}
-              </div>
-            </div>
-            <div style={{ display: "flex", marginLeft: "auto" }}>
-              <div
-                style={{
-                  marginTop: "1.5vw",
-                  marginBottom: "1.5vw",
-                  marginRight: "10vw",
-                  cursor: "pointer",
-                }}
-                onClick={(e) => this.logout(e)}
-              >
-                Log Out
-              </div>
-            </div>
-          </div>
-          )
-        </div> */}
-        <h1>User Panel</h1>
+        <h1 style={{marginTop:"20px", marginBottom:"20px"}}>Welcome to E-library</h1>
         <input
           type="text"
           id="header-search"
@@ -158,12 +115,12 @@ class Application extends React.Component {
           Search Book By Name
         </span>
 
-        <div class="flex">
+        <div style={{marginTop:"20px",marginBottom:"40px"}} class="flex">
           {this.state.search_field === ""
             ? this.state.books.map((books) => {
                 const { id, name, author, pub_year, copies } = books;
                 return (
-                  <div key={id} class="card">
+                  <div  style={{margin:"15px"}} key={id} class="card">
                     <p class="name">{name}</p>
                     <p class="author">By- {author}</p>
                     <p class="year">{pub_year}</p>
@@ -193,8 +150,6 @@ class Application extends React.Component {
                 );
               })}
         </div>
-        <h1> Top Issued</h1>
-        <Slide array={this.state.top_issued} />
       </div>
     );
   }

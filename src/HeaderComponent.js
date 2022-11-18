@@ -7,11 +7,10 @@ class Header extends Component {
         super(props);
         this.state = {
           isNavOpen: false,
-          isModalOpen: false
+          isAuthenticated :localStorage.getItem('email')?true:false
         };
         this.toggleNav = this.toggleNav.bind(this);
-        this.toggleModal = this.toggleModal.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
+        this.logout = this.logout.bind(this);
       }
     
 
@@ -20,23 +19,14 @@ class Header extends Component {
           isNavOpen: !this.state.isNavOpen
         });
       }
-      toggleModal() {
-        this.setState({
-          isModalOpen: !this.state.isModalOpen
-        //   console.log()
-        });
-        console.log(this.state.isModalOpen)
+      logout(){
+        localStorage.removeItem('email');
+        localStorage.removeItem('role');
+        window.location.href = `/`;
       }
-      handleLogin(event) {
-        this.toggleModal();
-        alert("Username: " + this.username.value + " Password: " + this.password.value
-            + " Remember: " + this.remember.checked);
-        event.preventDefault();
-
-    }
     render() {
         return(
-            <React.Fragment>
+            <div className="header">
                 
                 <Navbar dark expand="md">
                     <div className="container">
@@ -45,44 +35,32 @@ class Header extends Component {
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                             <NavItem>
-                                <NavLink className="nav-link"  to='/home'><span className="fa fa-home fa-lg"></span> Student</NavLink>
+                                <NavLink className="nav-link"  to='/'><span className="fa fa-home fa-lg"></span>Home</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className="nav-link" to='/aboutus'><span className="fa fa-info fa-lg"></span> About Us</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link"  to='/menu'><span className="fa fa-list fa-lg"></span> Menu</NavLink>
-                            </NavItem>
-                            <NavItem>
                                 <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact Us</NavLink>
                             </NavItem>
-                            {/* <NavItem>
-                                <NavLink className="nav-link" to='/signup'><span className="fa fa-address-card fa-lg"></span> Signup</NavLink>
-                            </NavItem> */}
                             </Nav>
+                            {!this.state.isAuthenticated?
                             <Nav className="ml-auto" navbar>
-                                <NavItem>
-                                    <Button outline onClick={this.toggleModal}><span className="fa fa-sign-in fa-lg"></span> Login</Button>
-                                </NavItem>
-                                <NavItem>
-                                <NavLink className="nav-link" to='/signup'><span className="fa fa-address-card fa-lg"></span> Signup</NavLink>
-                                </NavItem>
-                            </Nav>
+                            <NavItem>
+                            <NavLink className="nav-link" to='/signup'><span className="fa fa-address-card fa-lg"></span> Signup</NavLink>
+                            </NavItem>
+                        </Nav>:
+                        <Nav className="ml-auto" navbar>
+                        <NavItem>
+                        <span style={{color:"white",size:"40px",marginRight:"4px"}} className="fa fa-sign-out"></span><span style={{cursor:"pointer",color:"white"}}  onClick={(e) => this.logout(e)}>Sign Out</span>
+                        </NavItem>
+                    </Nav>
+                        }
                         </Collapse>
                     </div>
                     
                 </Navbar>
-                <Jumbotron>
-                    <div className="container">
-                        <div className="row row-header">
-                            <div className="col-12 col-sm-6">
-                                <h1>SGSITS</h1>
-                                <p>Shri Govindram Seksaria Institute of Technology and Science, formerly known as Govindram Seksaria Technological Institute, is a institute of technology located in Indore, Madhya Pradesh, India.</p>
-                            </div>
-                        </div>
-                    </div>
-                </Jumbotron>
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                {/* <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
                     <ModalBody>
                     <Form onSubmit={this.handleLogin}>
@@ -106,8 +84,8 @@ class Header extends Component {
                             <Button type="submit" value="submit" color="primary">Login</Button>
                         </Form>
                     </ModalBody>
-                </Modal>
-            </React.Fragment>
+                </Modal> */}
+            </div>
         );
     }
 }

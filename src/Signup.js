@@ -41,14 +41,15 @@ class Signup extends Component {
         console.log(data)
           axios.post('http://localhost:8000/user/signup',data).then((res)=>{
             if(res.data.email){
-              var d={email:res.data.email,role:res.data.role}
+              var d={email:res.data.email,role:res.data.role,name:res.data.name}
               localStorage.setItem('email',d.email)
               localStorage.setItem('role',d.role)
+              localStorage.setItem('name',d.name)
               if(d.role==='user'){
-                this.props.history.push('/books');
+                window.location.href = `/student`;
               }
               else{
-                this.props.history.push('/admin');
+                window.location.href = `/teacher`;
               }
             }
             else{
@@ -71,7 +72,7 @@ class Signup extends Component {
             <div style={{ width: '100%', textAlign: 'left', fontSize: '1.2rem', marginTop: '2px' }}><label for="password">Password</label>
               <div><input style={{ width: '100%', borderRadius: 2, border: 0, height: '2.2rem', marginTop: 2, backgroundColor: 'rgb(225, 240, 255)', fontSize: '1.2vw' }}onChange={this.passwordChange} type="password" id="password" name="password" /></div></div>
               <div style={{ width: '100%', textAlign: 'left', fontSize: '1.2rem', marginTop: '2px' }}><label for="role">Role</label>
-             <div> <select name="role" id="role" style={{width:'100%',height:'2.3rem',backgroundColor: 'rgb(225, 240, 255)'}}>
+             <div> <select onChange={this.roleChange}  name="role" id="role" style={{width:'100%',height:'2.3rem',backgroundColor: 'rgb(225, 240, 255)'}}>
                <option value="user">User</option>
                <option value="admin">Admin</option>
                 </select></div></div>

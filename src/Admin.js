@@ -145,7 +145,7 @@ style={{
 }}
 
 isOpen={this.state.open}
-// onRequestClose={this.toggleModel()}
+onRequestClose={()=>this.toggleModel()}
 // https://source.unsplash.com/1600x900/?book
 contentLabel="My dialog"
 >
@@ -176,18 +176,14 @@ contentLabel="My dialog"
 </div>
 </Modal>
       :<div></div>}
-        <div className="top"> <div style={{ position:"absolute",display: 'flex', width: '100vw', backgroundColor: '#0b0b0b', fontSize: '2vh', fontWeight: 'bold',color:'white',height:'10vh' }}>
-        <div style={{ display: 'flex' }}><div style={{ marginTop: '1.5vw', marginBottom: '1.5vw', marginLeft: '10vw', cursor: 'pointer' }}>{em}</div></div>
-        <div style={{ display: 'flex', marginLeft: 'auto' }}> <div style={{ marginTop: '1.5vw', marginBottom: '1.5vw', marginRight: '10vw', cursor: 'pointer' }} onClick={()=>this.toggleModel()}>Add Book</div>
-          <div style={{ marginTop: '1.5vw', marginBottom: '1.5vw', marginRight: '10vw', cursor: 'pointer' }} onClick={(e) => this.logout(e)}>Log Out</div></div>
-      </div>
-      </div>
-          <h1>Admin Panel</h1>
-        <div class="flex">
+        <div>
+          <h1 style={{marginTop:"20px",marginBottom:"20px"}}>Welcome to E-library Admin Panel</h1>
+          </div>
+        <div style={{marginTop:"20px",marginBottom:"20px"}} class="flex">
             {this.state.books.map(books => {
               const { id,name, author, pub_year,copies } = books;
               return (
-                <div key={id} class="card">
+                <div style={{margin:"15px"}} key={id} class="card">
                   <p class="name">{name}</p>
                   <p class="author">By- {author}</p>
                   <p class="year">{pub_year}</p>
@@ -196,10 +192,7 @@ contentLabel="My dialog"
               );
             })}
         </div>
-        {this.state.top_issued.map(book=>{
-          const name_top=book.name,author_top=book.author,copies_top=book.copies;
-          return(<div>{name_top} {author_top} {copies_top}</div>)
-        })}
+        <h3 style={{marginTop:"20px",marginBottom:"20px",cursor:"pointer"}} onClick={()=>this.toggleModel()}>Add New Books</h3>
     </div>);
 }
 }

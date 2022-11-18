@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import './signup.css';
 class Login extends Component {
     constructor(props) {
@@ -8,6 +9,7 @@ class Login extends Component {
         this.state = {
           email_id:"",
           password:"",
+          isAuthenticated:false
         }
         this.enter = this.enter.bind(this);
         this.emailChange = this.emailChange.bind(this);
@@ -33,11 +35,12 @@ class Login extends Component {
            var d={email:res.data.email,role:res.data.role}
           localStorage.setItem('email',d.email)
           localStorage.setItem('role',d.role)
+          this.setState({isAuthenticated:true});
           if(d.role==='user'){
-            this.props.history.push('/books');
+            window.location.href = `/student`;
           }
           else{
-            this.props.history.push('/admin');
+            window.location.href = `/teacher`;
           }
          }
          else{
@@ -45,9 +48,6 @@ class Login extends Component {
          }
   
         })
-        // if(this.state.isLogin){
-        //   this.props.history.push("/classroom");
-        // }
       }
     render(){
         return(
@@ -73,6 +73,7 @@ class Login extends Component {
               marginTop: '10vh'
             }} />
           </div>
+          <p><Link to="/signup" style={{color:'#007bff',fontSize:'16px',float:'right',cursor:'pointer',marginTop:'3%'}}>Don't have an account</Link></p>
         </div>
           </div>);
     }
