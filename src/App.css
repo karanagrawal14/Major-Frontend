@@ -137,3 +137,14 @@ address{
 .first{
   margin: 40px;
 }
+.fimage{
+  width: 50%;
+  border: 2px solid black;
+  border-radius: 70px;
+}
+.fbody{
+  text-align: initial;
+}
+p{
+ margin-bottom: 0rem !important; 
+}
