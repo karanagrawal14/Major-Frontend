@@ -11,8 +11,7 @@ function Assignment(){
             <CardImg src={assignment} alt="Assignment" />
                     <CardBody>
                     <CardTitle>Assignment</CardTitle>
-                    
-                    <CardText>the act of assigning something. the assignment of a task. : a position, post, or office to which one is assigned. Her assignment was to the embassy in India. : a specified task or amount of work assigned or undertaken as if assigned by authority</CardText>
+                    <CardText>With this section, Teachers will be able to assign tasks to the students. Students can view this assignment from the student portal and make submissions for the same.</CardText>
                     </CardBody>
         </Card>
     )
@@ -23,8 +22,7 @@ function Test(){
             <CardImg src={test} alt="test" />
                     <CardBody>
                     <CardTitle>Generate Test</CardTitle>
-                    
-                    <CardText>the act of assigning something. the assignment of a task. : a position, post, or office to which one is assigned. Her assignment was to the embassy in India. : a specified task or amount of work assigned or undertaken as if assigned by authority</CardText>
+                    <CardText>This Section will help the teachers to create test. These created tests will be visible to the students for the fixed time. </CardText>
                     </CardBody>
         </Card>
     )
@@ -51,7 +49,7 @@ function Project(){
                     <CardBody>
                     <CardTitle>Project</CardTitle>
                     
-                    <CardText>the act of assigning something. the assignment of a task. : a position, post, or office to which one is assigned. Her assignment was to the embassy in India. : a specified task or amount of work assigned or undertaken as if assigned by authority</CardText>
+                    <CardText>Assign Projects to be completed by the students for the evaluation. With this section they will be able to view and submit their projects.</CardText>
                     </CardBody>
         </Card>
     )
