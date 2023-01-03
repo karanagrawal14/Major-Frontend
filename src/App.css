@@ -151,3 +151,13 @@ p{
 .card-img{
   height: 250px;
 }
+.form-group{
+  margin: auto;
+    width: 388px;
+}
+input[type=file]{
+  padding-left: 90px;
+}
+.btn{
+  margin-bottom: 25px;
+}
