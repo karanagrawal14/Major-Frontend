@@ -62,7 +62,8 @@ const CourseCard = ({
               <img
                 className="changeColorBG"
                 src={userImage}
-                style={{ width: 30, height: 30, marginRight: 0, marginTop: 5 }}
+                style={{ width: 30, height: 30, marginRight: 0, marginTop: 5 } }
+                alt="bgimg"
               />
             </div>
             <div
@@ -105,6 +106,7 @@ const CourseCard = ({
             <div
               className="students-box-circle"
               style={{ marginLeft: 0, background: "#6C63FF" }}
+              alt="bgimg"
             >
               <img src={userImage} />
             </div>
@@ -115,6 +117,7 @@ const CourseCard = ({
                 background: "#0F98D9",
                 transform: "scale(1.02)",
               }}
+              alt="bgimg"
             >
               <img src={userImage3} />
             </div>
@@ -125,6 +128,7 @@ const CourseCard = ({
                 background: "#545454",
                 transform: "scale(1.05)",
               }}
+              alt="bgimg"
             >
               <img src={userImage4} />
             </div>

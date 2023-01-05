@@ -76,6 +76,7 @@ const LandingPage = () => {
           </div>
         </div>
         <img
+        
           src={registerPic}
           style={{ width: "100%", alignSelf: "center", zIndex: 999 }}
         />

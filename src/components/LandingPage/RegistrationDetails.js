@@ -105,20 +105,20 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
         "Invalid form. Please ensure you have filled all fields"
       );
     }
-
-    Axios.post("/api/students", {
+    console.log(password)
+    Axios.post("http://localhost:8000/api/students", {
       fName,
       lName,
       email,
-      password: encrypt(password),
+      password:password,
       year: studentClass,
       department: studentDepartment,
     })
       .then((res) => {
         if (res.status === 200 && res.data.success) {
-          Axios.post("/api/students/login", {
+          Axios.post("http://localhost:8000/api/students/login", {
             email: email,
-            password: encrypt(password),
+            password: password,
           }).then((res) => {
             if (res.data.data) {
               const details = res.data.data;
@@ -160,17 +160,17 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
       );
     }
 
-    Axios.post("/api/teachers", {
+    Axios.post("http://localhost:8000/api/teachers", {
       fName,
       lName,
       email,
-      password: encrypt(password),
+      password:password,
     })
       .then((res) => {
         if (res.status === 200 && res.data.success) {
-          Axios.post("/api/teachers/login", {
+          Axios.post("http://localhost:8000/api/teachers/login", {
             email: email,
-            password: encrypt(password),
+            password: password,
           }).then((res) => {
             if (res.data.data) {
               const details = res.data.data;

@@ -401,7 +401,7 @@ const AssignmentDetails = () => {
                     color="#878787"
                     style={{ width: "10%" }}
                     onClick={() => handleSubmission(null)}
-                    style={{ cursor: "pointer" }}
+                    // style={{ cursor: "pointer" }}
                   />
                 </div>
               ) : null}

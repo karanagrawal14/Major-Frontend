@@ -48,9 +48,9 @@ const Login = ({
       return Swal.fire("Error", "Form is invalid");
     }
 
-    Axios.post("/api/students/login", {
+    Axios.post("http://localhost:8000/api/students/login", {
       email: email,
-      password: encrypt(password),
+      password: (password),
     })
       .then((res) => {
         if (res.data.data) {
@@ -78,7 +78,7 @@ const Login = ({
       return Swal.fire("Error", "Form is invalid");
     }
 
-    Axios.post("/api/getResetLink", {
+    Axios.post("http://localhost:8000/api/getResetLink", {
       email: email,
       user_type: isStudent ? "student" : "teacher",
     })
@@ -104,9 +104,9 @@ const Login = ({
       return Swal.fire("Error", "Form is invalid");
     }
 
-    Axios.post("/api/teachers/login", {
+    Axios.post("http://localhost:8000/api/teachers/login", {
       email: email,
-      password: encrypt(password),
+      password:(password),
     })
       .then((res) => {
         if (res.data.data) {

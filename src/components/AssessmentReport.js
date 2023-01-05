@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import Axios from "axios";
 import { Activity, BarChart2, Download } from "react-feather";
-import { Line, defaults, Bar } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 import Toggle from "react-toggle";
 import jsPDF from "jspdf";
 import { getRandomUser2 } from "./random";
@@ -13,11 +13,11 @@ import "react-toggle/style.css";
 import "./css/Sidebar.css";
 import "./css/Course.css";
 
-defaults.global.defaultFontFamily = "Poppins";
-defaults.global.defaultFontSize = 15;
-defaults.global.defaultFontColor = "#ababab";
-defaults.global.defaultFontWeight = 500;
-defaults.global.tooltips.backgroundColor = "red";
+// defaults.global.defaultFontFamily = "Poppins";
+// defaults.global.defaultFontSize = 15;
+// defaults.global.defaultFontColor = "#ababab";
+// defaults.global.defaultFontWeight = 500;
+// defaults.global.tooltips.backgroundColor = "red";
 
 const generatePDF = (tickets, notSubmittedTickets) => {
   const doc = new jsPDF();
