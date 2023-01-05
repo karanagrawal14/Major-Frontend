@@ -149,7 +149,7 @@ const Course = () => {
     let arr = window.location.href.split("/");
     let courseID = arr[arr.length - 1];
     let courseInfo = null;
-    Axios.get(`/api/course/${courseID}`)
+    Axios.get(`http://localhost:8000/api/course/${courseID}`)
       .then((res) => {
         if (res.data.success) {
           courseInfo = res.data.data;
@@ -162,7 +162,7 @@ const Course = () => {
   }, [ignore, courseNameModalIsOpen]);
 
   React.useEffect(() => {
-    Axios.get(`/api/quiz/course/${courseID}`)
+    Axios.get(`http://localhost:8000/api/quiz/course/${courseID}`)
       .then((res) => {
         if (res.data.success) {
           setQuizzes(res.data.data.reverse());
@@ -173,7 +173,7 @@ const Course = () => {
 
   React.useEffect(() => {
     let teacher_id = courseInfo.teacher_id;
-    Axios.get(`/api/teacher/${teacher_id}`)
+    Axios.get(`http://localhost:8000/api/teacher/${teacher_id}`)
       .then((res) => {
         if (res.data.success) {
           let teacher = res.data.data;
@@ -185,7 +185,7 @@ const Course = () => {
   }, [courseInfo]);
 
   React.useEffect(() => {
-    Axios.get(`/api/course/students/${courseID}`)
+    Axios.get(`http://localhost:8000/api/course/students/${courseID}`)
       .then((res) => {
         if (res.data.success) {
           let courseStudents = res.data.data;
@@ -197,7 +197,7 @@ const Course = () => {
   }, [courseInfo]);
 
   React.useEffect(() => {
-    Axios.get(`/api/course/assignment/${courseID}`)
+    Axios.get(`http://localhost:8000/api/course/assignment/${courseID}`)
       .then((res) => {
         if (res.data.success) {
           setPosts(res.data.data.reverse());
@@ -210,7 +210,7 @@ const Course = () => {
 
   React.useEffect(() => {
     let loc = window.location.href.split("/");
-    Axios.get(`/api/messages/${loc[loc.length - 1]}`).then((res) => {
+    Axios.get(`http://localhost:8000/api/messages/${loc[loc.length - 1]}`).then((res) => {
       if (res.data.success) {
         setMessages(res.data.data);
       }
@@ -299,12 +299,12 @@ const Course = () => {
       is_assignment: isAssignment,
     };
 
-    Axios.post("/api/assignment", materialData)
+    Axios.post("http://localhost:8000/api/assignment", materialData)
       .then((res) => {
         var formData = new FormData();
         formData.append("file", attachment);
         Axios.post(
-          `/api/assignment/attachment/${res.data.data._id}`,
+          `http://localhost:8000/api/assignment/attachment/${res.data.data._id}`,
           formData,
           {
             headers: {
@@ -322,7 +322,7 @@ const Course = () => {
           .catch((err) => {
             if (isAssignment === false) {
               toast.error("Attachment error");
-              Axios.delete(`/api/assignment/${res.data.data._id}`)
+              Axios.delete(`http://localhost:8000/api/assignment/${res.data.data._id}`)
                 .then(() => {
                   console.log("Assignment with invalid attachment deleted");
                 })
@@ -340,7 +340,7 @@ const Course = () => {
   };
 
   const removeStudent = (student_id, course_id) => {
-    Axios.post("/api/removeStudent", {
+    Axios.post("http://localhost:8000/api/removeStudent", {
       student_id: student_id,
       course_id: course_id,
     })
@@ -358,7 +358,7 @@ const Course = () => {
   };
 
   const deleteCourse = (course_code, course_id) => {
-    Axios.delete(`/api/course/${course_id}`)
+    Axios.delete(`http://localhost:8000/api/course/${course_id}`)
       .then((res) => {
         if (res.data.success) {
           toast.success("Course deleted successfully");
@@ -385,7 +385,7 @@ const Course = () => {
       return toast.error("New Course Name cannot be empty");
     }
 
-    const url = `/api/course/changeName/${courseID}`;
+    const url = `http://localhost:8000/api/course/changeName/${courseID}`;
     Axios.post(url, {
       name: newCourseName,
     })
@@ -442,10 +442,10 @@ const Course = () => {
       time_stamp: new Date().getTime().toString(),
       course_id: loc[loc.length - 1],
     };
-    Axios.post(`/api/message`, obj).then((res) => {
+    Axios.post(`http://localhost:8000/api/message`, obj).then((res) => {
       if (res.data.success) {
       }
-      Axios.get(`/api/messages/${loc[loc.length - 1]}`).then((res) => {
+      Axios.get(`http://localhost:8000/api/messages/${loc[loc.length - 1]}`).then((res) => {
         if (res.data.success) {
           setMessages(res.data.data);
         }

@@ -470,7 +470,7 @@ const QuizQuestion = ({ history }) => {
     let _id = null;
     var QID = 1;
 
-    Axios.post("/api/quiz", quiz)
+    Axios.post("http://localhost:8000/api/quiz", quiz)
       .then((res) => {
         if (res.data.success) {
           _id = res.data.data._id;
@@ -480,7 +480,7 @@ const QuizQuestion = ({ history }) => {
             Promise.all(
               questions.map((ques) => {
                 ques.quiz_id = _id;
-                Axios.post("/api/quizQuestion", ques)
+                Axios.post("http://localhost:8000/api/quizQuestion", ques)
                   .then((res) => {})
                   .catch((e) => console.log(e));
               })

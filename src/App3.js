@@ -20,20 +20,18 @@ function App() {
   return(
     <div>
     <BrowserRouter>
+    {/* <Sidebar/> */}
       <Switch>
         <Route exact path='/' component={LandingPage}/>
-        <Route exact path='/home' component={Home}/>
-        {/* <Route path="/" component={LandingPage} /> */}
-      <Route exact path='/notes' component={Notes}/>
        <Route exact path="/reset-password/*" component={ResetPassword} />
-      {/* <Route exact path="/home" component={<><Home /><Sidebar /></>}/> */}
-      {/* <Route path="/notes" element={<><Notes /><Sidebar /></>}exact/> */}
-      <Route path="/search" element={<><Search /><Sidebar /></>}exact/>
-      <Route path="/course/*" element={<><Course /><Sidebar /></>}exact/>
-      <Route path="/assignment/*" element={<><AssignmentDetails /><Sidebar /></>}exact/>
-      <Route path="/assessmentReport/*" element={<><AssessmentReport /><Sidebar /></>}exact/>
-      <Route path="/quiz/*" element={<><Quiz /><Sidebar /></>}exact/>
-      <Route path="/createQuiz/*" element={<><QuizQuestion /><Sidebar /></>}exact/>
+      <Route exact path="/home" render={()=><><Home/> <Sidebar/></>}/>
+      <Route path="/notes" render={()=><><Notes /><Sidebar /></>}exact/>
+      <Route path="/search" render={()=><><Search /><Sidebar /></>} exact/>
+      <Route path="/course/*" render={()=><><Course /><Sidebar /></>}exact/>
+      <Route path="/assignment/*" render={()=><><AssignmentDetails /><Sidebar /></>}exact/>
+      <Route path="/assessmentReport/*" render={()=><><AssessmentReport /><Sidebar /></>}exact/>
+      <Route path="/quiz/*" render={()=><><Quiz /><Sidebar /></>}exact/>
+      <Route path="/createQuiz/*" render={()=><><QuizQuestion /><Sidebar /></>}exact/>
       </Switch> 
     </BrowserRouter>
   </div>

@@ -33,7 +33,7 @@ const Notes = ({}) => {
       return;
     }
 
-    Axios.post("/api/notes", {
+    Axios.post("http://localhost:8000/api/notes", {
       user_id: _id,
       user_type: userType,
       content: note,
@@ -53,7 +53,7 @@ const Notes = ({}) => {
   };
 
   const deleteNote = (id) => {
-    Axios.delete(`/api/notes/${id}`)
+    Axios.delete(`http://localhost:8000/api/notes/${id}`)
       .then((res) => {
         if (res.data.success) {
           toast.success("Note deleted");
@@ -67,7 +67,7 @@ const Notes = ({}) => {
   };
 
   React.useEffect(() => {
-    Axios.get(`/api/notes/${userType}/${_id}`)
+    Axios.get(`http://localhost:8000/api/notes/${userType}/${_id}`)
       .then((res) => {
         if (res.data.success) {
           setNotes(res.data.data);

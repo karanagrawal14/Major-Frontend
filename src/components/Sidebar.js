@@ -66,7 +66,7 @@ const Sidebar = () => {
   }
 
   React.useEffect(() => {
-    Axios.get(`/api/${userType}/${user._id}`, {
+    Axios.get(`http://localhost:8000/api/${userType}/${user._id}`, {
       header: {
         "Content-Type": "application/json; charset=utf-8",
       },
@@ -83,7 +83,7 @@ const Sidebar = () => {
 
   React.useEffect(() => {
     if (userType === "teacher") return;
-    Axios.get(`/api/fetchCourse/student/${user._id}`, {
+    Axios.get(`http://localhost:8000/api/fetchCourse/student/${user._id}`, {
       header: {
         "Content-Type": "application/json; charset=utf-8",
       },
@@ -102,7 +102,7 @@ const Sidebar = () => {
 
   React.useEffect(() => {
     if (userType === "student") return;
-    Axios.get(`/api/fetchCourse/teacher/${user._id}`, {
+    Axios.get(`http://localhost:8000/api/fetchCourse/teacher/${user._id}`, {
       header: {
         "Content-Type": "application/json; charset=utf-8",
       },
@@ -209,7 +209,7 @@ const Sidebar = () => {
       return toast.error("Name fields cannot be empty");
     }
 
-    const url = `/api/update/${userType}`;
+    const url = `http://localhost:8000/api/update/${userType}`;
     Axios.post(url, {
       fName: newFName,
       lName: newLName,
@@ -374,7 +374,7 @@ const Sidebar = () => {
                       letterSpacing: 0.25,
                     }}
                   >
-                    Engage
+                    SGSITS
                   </p>
                 </div>
               </div>

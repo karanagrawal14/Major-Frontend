@@ -71,7 +71,7 @@ const LandingPage = () => {
                 margin: 0,
               }}
             >
-              Engage
+              SGSITS
             </p>
           </div>
         </div>
