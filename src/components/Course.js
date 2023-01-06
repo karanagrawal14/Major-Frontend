@@ -304,6 +304,7 @@ const Course = () => {
         var formData = new FormData();
         formData.append("file", attachment);
         Axios.post(
+          
           `http://localhost:8000/api/assignment/attachment/${res.data.data._id}`,
           formData,
           {
@@ -314,6 +315,7 @@ const Course = () => {
         )
           .then((res1) => {
             if (isAssignment === true) {
+              console.log("Assignment is posted")
               toast.success("New assignment successfully created");
             } else if (isAssignment === false) {
               toast.success("New study material successfully created");
@@ -445,7 +447,7 @@ const Course = () => {
     Axios.post(`http://localhost:8000/api/message`, obj).then((res) => {
       if (res.data.success) {
       }
-      Axios.get(`http://localhost:8000/api/messages/${loc[loc.length - 1]}`).then((res) => {
+      Axios.get(`https://localhost:8000/api/messages/${loc[loc.length - 1]}`).then((res) => {
         if (res.data.success) {
           setMessages(res.data.data);
         }

@@ -4,6 +4,7 @@ import GetStarted from "./GetStarted";
 import RegistrationDetails from "./RegistrationDetails";
 import Login from "./Login";
 import registerPic from "../../assets/register.png";
+import logo from "../../assets/logo.png"
 import "../../App.css";
 
 const LandingPage = () => {
@@ -59,7 +60,8 @@ const LandingPage = () => {
             justifyContent: "center",
           }}
         >
-          <BookOpen size={35} color="#6C63FF" />
+          {/* <BookOpen size={35} color="#6C63FF" /> */}
+          <img className="logoimg" src={logo}/>
           <div style={{ alignItems: "flex-start", display: "flex" }}>
             <p
               style={{

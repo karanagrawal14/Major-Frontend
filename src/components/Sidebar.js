@@ -5,6 +5,7 @@ import Toggle from "react-toggle";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
 import { Scrollbars } from "react-custom-scrollbars";
+import logo from "../assets/logo.png"
 import {
   X,
   BookOpen,
@@ -355,7 +356,8 @@ const Sidebar = () => {
                   paddingRight: 30,
                 }}
               >
-                <BookOpen size={30} color="#6C63FF" />
+                {/* <BookOpen size={30} color="#6C63FF" /> */}
+                <img className="logoimg" src={logo}/>
                 <div
                   style={{
                     alignItems: "flex-start",
