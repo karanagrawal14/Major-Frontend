@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import hod from "./assets/hodsir.jpg";
-import dk from './assets/dkmishra.jpg'
+// import dk from './assets/dkmishra.jpg'
 import ppbansod from './assets/ppbansod.jpg';
 import dsajnar from './assets/dsajnar.jpg';
 import khatrisir from './assets/khatrisir.jpg';
@@ -100,13 +100,13 @@ function About(props) {
             <CardBody>
               <dl className="row p-1">
                 <dt className="col-12">
-                  <i class="fa fa-user">: Dr.R.S.Gamad</i>
+                  <i class="fa fa-user">:Mr. D.K. Mishra</i>
                 </dt>
                 <dt className="col-12">
-                  <i class="fa fa-envelope">: gs3300293@sgsitsindore.in</i>
+                  <i class="fa fa-envelope">: dmishra@sgsits.ac.in</i>
                 </dt>
                 <dt className="col-12">
-                  <i class="fa fa-phone">: +91-731- 2582421</i>
+                  <i class="fa fa-phone">: 091-731-2582428</i>
                 </dt>
               </dl>
             </CardBody>
@@ -142,7 +142,7 @@ function About(props) {
         <div className="col-12">
           <Media list>
           <div className="col-12 mt-5">
-            <Media>
+            {/* <Media>
               <Media left href="#">
                 <Media 
                   object
@@ -161,7 +161,7 @@ function About(props) {
                 <p><i class="fa fa-envelope"></i> : dmishra@sgsits.ac.in</p>
                 <p></p>
               </Media>
-            </Media>
+            </Media> */}
           </div>
           <div className="col-12 mt-5">
             <Media>

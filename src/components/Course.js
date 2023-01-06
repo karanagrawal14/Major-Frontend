@@ -7,7 +7,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import SwipeableViews from "react-swipeable-views";
 import { withStyles } from "@material-ui/core/styles";
-// import DayPickerInput from "react-day-picker/DayPickerInput";
+import DayPickerInput from "react-day-picker/DayPickerInput";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import {
@@ -33,7 +33,7 @@ import userImage from "../assets/user.png";
 import userImage3 from "../assets/user3.png";
 import userImage4 from "../assets/user4.png";
 import { getRandomUser } from "./random";
-// import "react-day-picker/lib/style.css";
+import "react-day-picker/lib/style.css";
 import "./css/Course.css";
 
 let randomUser = getRandomUser();
@@ -1295,11 +1295,11 @@ const Course = () => {
                   >
                     Due date of assignment
                   </p>
-                  {/* <DayPickerInput
+                  <DayPickerInput
                     onDayChange={handleDueDateChange}
                     style={{ fontFamily: "Poppins", fontSize: 14 }}
                     navbarElement={<ArrowLeft size={15} />}
-                  /> */}
+                  />
                 </div>
 
                 <div

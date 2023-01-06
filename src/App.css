@@ -163,4 +163,6 @@ input[type=file]{
 }
 .logoimg{
   width: 65px;
+  border: 2px solid black;
+    border-radius: 40px;
 }

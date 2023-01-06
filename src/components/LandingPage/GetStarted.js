@@ -71,7 +71,9 @@ const Features = () => {
     );
   });
 };
-
+const goAboutUs=()=>{
+  window.location.href="http://localhost:3000/aboutus";
+}
 const GetStarted = ({ goNext }) => {
   return (
     <React.Fragment>
@@ -91,18 +93,38 @@ const GetStarted = ({ goNext }) => {
         Discover a new way of learning!
         <br />
         <br />
-        Engage is your one-stop-solution for all classroom needs
+        This Portal is your one-stop-solution for all classroom needs
       </h2>
 
       <Features />
 
       <div style={{ marginTop: "10%" }}>
-        <button onClick={() => goNext()}>
+        <button onClick={() => goAboutUs()} style={{margin:"10px"}}>
           <p
             style={{
               fontSize: 17,
               fontWeight: 600,
-              color: "white",
+              color: "black",
+              margin: 0,
+              fontFamily: "Poppins",
+              letterSpacing: 0.4,
+            }}
+          >
+            About Us
+          </p>
+          <i class="fa fa-users"></i>
+          {/* <ArrowRight
+            size={25}
+            color="black"
+            style={{ marginLeft: "0.5rem" }}
+          /> */}
+        </button>
+        <button onClick={() => goNext()} style={{margin:"10px"}}>
+          <p
+            style={{
+              fontSize: 17,
+              fontWeight: 600,
+              color: "black",
               margin: 0,
               fontFamily: "Poppins",
               letterSpacing: 0.4,
@@ -111,8 +133,8 @@ const GetStarted = ({ goNext }) => {
             Get Started
           </p>
           <ArrowRight
-            size={25}
-            color="white"
+            size={15}
+            color="black"
             style={{ marginLeft: "0.5rem" }}
           />
         </button>

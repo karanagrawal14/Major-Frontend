@@ -119,7 +119,10 @@ const Sidebar = () => {
         console.log("Could not fetch your courses. Please try again");
       });
   }, [modalIsOpen]);
-
+  // const clk =()=>{
+  //   alert("called")
+  //   window.location.href= " https://saumya25mis.github.io/Circuit-Simulator-main/"
+  // }
   const handleThemeChange = (e) => {
     setIsLightTheme(e.target.checked);
     isLightTheme
@@ -181,8 +184,22 @@ const Sidebar = () => {
       ),
       path: "/notes",
     },
+    // {
+    //   title: "Simulator",
+    //   icon: (
+    //     <Layout
+    //       size={22}
+    //       color={
+    //         GetCurrentPath() === "/simulator"
+    //           ? "#6C63FF"
+    //           : theme === "dark"
+    //           ? "#BABABA"
+    //           : "#232323"
+    //       }
+    //     />
+    //   ),
+    // },
   ];
-
   if (userType === "teacher") {
     menuOptions.push({
       title: "Search",
@@ -573,7 +590,7 @@ const Sidebar = () => {
                 </Link>
               );
             })}
-
+              <div onClick={()=>{window.location.href=" https://saumya25mis.github.io/Circuit-Simulator-main/"}} style={{color:"black",marginLeft:"20px",cursor:"pointer"}}>Simulator</div>
             <div
               style={{
                 width: "13em",
@@ -676,7 +693,6 @@ const Sidebar = () => {
                 MY COURSES
               </p>
             </div>
-
             {sidebarData.map((item, index) => {
               return (
                 <Link to={`/course/${item._id}`}>

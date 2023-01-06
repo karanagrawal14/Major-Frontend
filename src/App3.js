@@ -15,6 +15,8 @@ import AssignmentDetails from "./components/AssignmentDetails";
 import AssessmentReport from "./components/AssessmentReport";
 import QuizQuestion from "./components/QuizQuestion";
 import ResetPassword from "./components/LandingPage/ResetPassword";
+import About from './AboutComponent.js';
+import Application  from './main';
 
 function App() {
   return(
@@ -26,6 +28,8 @@ function App() {
        <Route exact path="/reset-password/*" component={ResetPassword} />
       <Route exact path="/home" render={()=><><Home/> <Sidebar/></>}/>
       <Route path="/notes" render={()=><><Notes /><Sidebar /></>}exact/>
+      <Route exact path="/books" component={Application}/>
+      <Route exact path="/aboutus" component={About}/>
       <Route path="/search" render={()=><><Search /><Sidebar /></>} exact/>
       <Route path="/course/*" render={()=><><Course /><Sidebar /></>}exact/>
       <Route path="/assignment/*" render={()=><><AssignmentDetails /><Sidebar /></>}exact/>

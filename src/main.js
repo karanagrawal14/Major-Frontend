@@ -94,8 +94,9 @@ class Application extends React.Component {
   render() {
     return (
       <div>
-        <h1 style={{marginTop:"20px", marginBottom:"20px"}}>Welcome to E-library</h1>
-        <input
+        <h1 className="center" style={{marginTop:"20px", marginBottom:"20px",textAlign:"center"}}>Welcome to E-library</h1>
+       <div style={{textAlign:"center"}}>
+       <input
           type="text"
           id="header-search"
           placeholder="Search Book"
@@ -114,6 +115,7 @@ class Application extends React.Component {
         >
           Search Book By Name
         </span>
+       </div>
 
         <div style={{marginTop:"20px",marginBottom:"40px"}} class="flex">
           {this.state.search_field === ""
