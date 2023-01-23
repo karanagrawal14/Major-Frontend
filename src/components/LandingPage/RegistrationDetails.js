@@ -34,24 +34,8 @@ export const yearOptions = [
 
 export const departmentOptions = [
   {
-    value: "IT",
-    label: "Information Technology",
-  },
-  {
-    value: "CS",
-    label: "Computer Science",
-  },
-  {
-    value: "ME",
-    label: "Mechanical",
-  },
-  {
-    value: "EE",
-    label: "Electrical",
-  },
-  {
-    value: "ECE",
-    label: "Electronics & Communication",
+    value: "EI",
+    label: "Electronics & Instrumentation",
   },
 ];
 

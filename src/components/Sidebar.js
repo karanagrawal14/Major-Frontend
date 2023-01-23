@@ -590,7 +590,9 @@ const Sidebar = () => {
                 </Link>
               );
             })}
+
               <div onClick={()=>{window.location.href=" https://saumya25mis.github.io/Circuit-Simulator-main/"}} style={{color:"black",marginLeft:"20px",cursor:"pointer"}}>Simulator</div>
+             <Link to="/books"><div style={{color:"black",marginLeft:"20px",cursor:"pointer"}}>E-Library Manager</div></Link>
             <div
               style={{
                 width: "13em",
