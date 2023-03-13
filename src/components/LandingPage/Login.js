@@ -598,12 +598,14 @@ const Login = ({
           >
             <button
               onClick={userType === "student" ? loginStudent : loginTeacher}
+              className="btn btn-new"
             >
               <p
                 style={{
                   fontSize: 16,
                   fontWeight: 600,
                   color: "white",
+                  // backgroundColor: "#6C63FF",
                   margin: 0,
                   fontFamily: "Poppins",
                   letterSpacing: 0.4,

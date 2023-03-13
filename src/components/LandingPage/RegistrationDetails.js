@@ -395,7 +395,7 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
                 onChange={(option) => setStudentClass(option.value)}
                 value={yearOptions[0].value}
                 placeholder="Select an option"
-                className="dropdown"
+                // className="dropdown"
               />
             </div>
           </div>
@@ -540,12 +540,14 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
       >
         <button
           onClick={userType === "student" ? registerStudent : registerTeacher}
+          className="btn btn-new"
         >
           <p
             style={{
               fontSize: 16,
               fontWeight: 600,
               color: "white",
+              // backgroundColor: "#6C63FF",
               margin: 0,
               fontFamily: "Poppins",
               letterSpacing: 0.4,

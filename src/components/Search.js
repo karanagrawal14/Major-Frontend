@@ -381,6 +381,7 @@ const SearchPage = ({}) => {
               placeholder="First Name"
               value={fName}
               onChange={(t) => setfName(t.target.value)}
+              className="changeColor changeColorBG"
             ></input>
             <input
               type="text"
@@ -389,6 +390,7 @@ const SearchPage = ({}) => {
               placeholder="Last Name"
               value={lName}
               onChange={(t) => setlName(t.target.value)}
+              className="changeColor changeColorBG"
             ></input>
           </div>
           <button
@@ -403,8 +405,11 @@ const SearchPage = ({}) => {
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "center",
+              paddingLeft:"10"
             }}
             onClick={search}
+            className="btn btn-new"
+            
           >
             <Search size={30} color="#fff" />
           </button>

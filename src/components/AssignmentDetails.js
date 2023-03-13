@@ -284,6 +284,7 @@ const AssignmentDetails = () => {
                     marginTop: 0,
                     textAlign: "center",
                   }}
+                  className="btn btn-new"
                 >
                   <p
                     style={{
@@ -311,11 +312,13 @@ const AssignmentDetails = () => {
                 target="_blank"
               >
                 <button
+                  className="btn btn-new"
                   style={{
                     padding: "8px 15px",
                     marginLeft: 0,
                     marginTop: 0,
                     textAlign: "center",
+                    // height:45
                   }}
                 >
                   <p
@@ -371,14 +374,17 @@ const AssignmentDetails = () => {
                   flexDirection: "row",
                   justifyContent: "center",
                   overflow: "hidden",
-                  height: 40,
+                  height: 100,
+                  width:"100%",
+                  margin:"auto"
+
                 }}
               >
                 <input type="file" onChange={handleSubmission} />
                 <Upload
-                  size={18}
+                  // size={18}
                   className="changeColor"
-                  style={{ marginRight: 10 }}
+                  // style={{ marginRight: 10}}
                 />
                 <p
                   className="changeColor"
@@ -388,6 +394,7 @@ const AssignmentDetails = () => {
                     color: "#6C63FF",
                     margin: 0,
                     fontFamily: "Poppins",
+                    // height:500
                   }}
                 >
                   Upload PDF
@@ -406,7 +413,7 @@ const AssignmentDetails = () => {
                 </div>
               ) : null}
 
-              <button
+              <button className="btn btn-new"
                 style={{
                   padding: "9px 10px",
                   alignItems: "center",

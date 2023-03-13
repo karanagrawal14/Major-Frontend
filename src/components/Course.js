@@ -477,12 +477,14 @@ const Course = () => {
           }}
         >
           <input
+
             style={{
               width: "96%",
               marginRight: 5,
               marginTop: 0,
               paddingLeft: 10,
             }}
+            className="changeColorBG changeColor"
             placeholder="Type a message..."
             autofocus={index == 1}
             value={message}
@@ -506,7 +508,7 @@ const Course = () => {
               alignItems: "center",
               justifyContent: "center",
             }}
-            className="background"
+            className="btn btn-new"
             onClick={sendMessage}
           >
             <Send
@@ -1100,7 +1102,7 @@ const Course = () => {
           style={customStyles3}
           contentLabel="Modal"
           closeTimeoutMS={200}
-          className="background"
+          className="background height2"
         >
           <div
             style={{
@@ -1262,6 +1264,7 @@ const Course = () => {
                   Title
                 </p>
                 <input
+                  className="changeColorBG changeColor"
                   type="text"
                   style={{ height: 40, width: "100%" }}
                   onChange={(t) => setTitle(t.target.value)}
@@ -1296,6 +1299,7 @@ const Course = () => {
                     Due date of assignment
                   </p>
                   <DayPickerInput
+                    className="change"
                     onDayChange={handleDueDateChange}
                     style={{ fontFamily: "Poppins", fontSize: 14 }}
                     navbarElement={<ArrowLeft size={15} />}
@@ -1327,6 +1331,7 @@ const Course = () => {
                   </p>
                   <input
                     type="text"
+                    className="changeColorBG changeColor"
                     style={{ height: 40, width: "100%" }}
                     onChange={(t) => setMaxMarks(t.target.value)}
                     onBlur={() =>
@@ -1362,6 +1367,7 @@ const Course = () => {
                 type="text"
                 style={{ height: 40 }}
                 onChange={(t) => setDescription(t.target.value)}
+                className="changeColorBG changeColor"
               ></input>
             </React.Fragment>
           ) : null}
@@ -1382,14 +1388,14 @@ const Course = () => {
             }}
           >
             Add attachment{" "}
-            <span style={{ fontSize: 14, fontWeight: 400, color: "#232323" }}>
+            <span className="changeColor" style={{ fontSize: 14, fontWeight: 400, color: "#232323" }}>
               (Supported Type : PDF, Max Size : 10 MB)
             </span>
           </p>
 
           {isQuiz ? null : attachment ? null : (
             <button
-              className="changeColorBG"
+              className="changeColorBG height"
               style={{
                 backgroundColor: "transparent",
                 border: "0px solid #eee",
@@ -1524,8 +1530,11 @@ const Course = () => {
 
           <div
             style={{
-              bottom: 10,
-              right: 10,
+              position:"absolute",
+              // bottom: 10,
+              right: 40,
+              bottom:40,
+
               display: "flex",
               flexDirection: "row-reverse",
               alignItems: "center",
@@ -1535,6 +1544,7 @@ const Course = () => {
               onClick={() => {
                 if (isQuiz) window.location.href = `/createQuiz/${courseID}`;
               }}
+              className ="btn btn-new"
             >
               <p
                 style={{
@@ -1553,6 +1563,7 @@ const Course = () => {
             <button
               style={{ boxShadow: "none", backgroundColor: "transparent" }}
               onClick={closeModal}
+              className = "btn btn-new"
             >
               <p
                 style={{
@@ -1622,7 +1633,7 @@ const Course = () => {
                 alignItems: "center",
               }}
             >
-              <button onClick={changeCourseName}>
+              <button onClick={changeCourseName} className="btn btn-new">
                 <p
                   style={{
                     fontSize: 16,
@@ -1639,6 +1650,7 @@ const Course = () => {
               <button
                 style={{ backgroundColor: "transparent", boxShadow: "none" }}
                 onClick={closeCourseNameModal}
+                className="btn btn-new"
               >
                 <p
                   style={{

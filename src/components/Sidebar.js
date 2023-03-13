@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import { toast } from "react-toastify";
 import { Scrollbars } from "react-custom-scrollbars";
 import logo from "../assets/logo.png"
+// import Button from 'reactstrap';
 import {
   X,
   BookOpen,
@@ -184,21 +185,24 @@ const Sidebar = () => {
       ),
       path: "/notes",
     },
-    // {
-    //   title: "Simulator",
-    //   icon: (
-    //     <Layout
-    //       size={22}
-    //       color={
-    //         GetCurrentPath() === "/simulator"
-    //           ? "#6C63FF"
-    //           : theme === "dark"
-    //           ? "#BABABA"
-    //           : "#232323"
-    //       }
-    //     />
-    //   ),
-    // },
+    {
+      title: "E-Library",
+      icon: (
+        <BookOpen
+        size={20}
+        color={
+          GetCurrentPath() === "/books"
+            ? "#6C63FF"
+            : theme === "dark"
+            ? "#BABABA"
+            : "#232323"
+        }
+        style={{ marginRight: 22 }}
+      />
+      ),
+      path: "/books",
+      // url: "https://saumya25mis.github.io/Circuit-Simulator-main/"
+    },
   ];
   if (userType === "teacher") {
     menuOptions.push({
@@ -592,7 +596,8 @@ const Sidebar = () => {
             })}
 
               <div onClick={()=>{window.location.href=" https://saumya25mis.github.io/Circuit-Simulator-main/"}} style={{color:"black",marginLeft:"20px",cursor:"pointer"}}>Simulator</div>
-             <Link to="/books"><div style={{color:"black",marginLeft:"20px",cursor:"pointer"}}>E-Library Manager</div></Link>
+             {/* <Link to="/books"><div style={{color:"black",marginLeft:"20px",cursor:"pointer"}}>	
+<i class="fa fa-lightbulb-o"></i>E-Library Manager</div></Link> */}
             <div
               style={{
                 width: "13em",
@@ -823,6 +828,7 @@ const Sidebar = () => {
           Change First Name
         </p>
         <input
+          className="changeColor changeColorBG"
           type="text"
           style={{ height: 40 }}
           value={newFName}
@@ -845,6 +851,7 @@ const Sidebar = () => {
           Change Last Name
         </p>
         <input
+        className="changeColor changeColorBG"
           type="text"
           style={{ height: 40 }}
           value={newLName}
@@ -861,7 +868,7 @@ const Sidebar = () => {
             alignItems: "center",
           }}
         >
-          <button onClick={changeName}>
+          <button onClick={changeName} className="btn btn-new">
             <p
               style={{
                 fontSize: 16,
@@ -878,6 +885,7 @@ const Sidebar = () => {
           <button
             style={{ backgroundColor: "transparent", boxShadow: "none" }}
             onClick={closeModal}
+            className="btn btn-new"
           >
             <p
               style={{
@@ -1167,7 +1175,7 @@ const Sidebar = () => {
           </React.Fragment>
         )}
         <Link to="/">
-          <p
+         <p
             style={{
               fontSize: 16,
               color: "#6C63FF",

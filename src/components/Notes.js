@@ -146,6 +146,7 @@ const Notes = ({}) => {
           }}
         >
           <input
+          className="changeColor changeColorBG"
             type="text"
             style={{ height: 60, fontSize: 25 }}
             value={note}
@@ -158,10 +159,15 @@ const Notes = ({}) => {
           <button
             style={{
               borderRadius: 100,
+              backgroundColor:" #6C63FF",
               height: 70,
               width: 70,
               marginTop: 0,
               marginBottom: 10,
+              paddingLeft: 12,
+              cursor:"pointer",
+              paddingTop:6,
+              marginLeft:12
             }}
             onClick={addNewNote}
           >

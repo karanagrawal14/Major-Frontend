@@ -150,6 +150,7 @@
     cursor: pointer;
     height: 0;
     width: 0;
+    /* background-color: var(--grey) !important; */
 }
 .checkmark {
     position: absolute;
@@ -405,6 +406,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
+    /* height:0px; */
     overflow: hidden;
 }
 
@@ -789,4 +791,18 @@
 .mcqhover:hover {
     background-color: #6C63FF !important;
     transition: 0.2s ease;
+}
+.height{
+    height: 60px !important;
+}
+.height2{
+    height: 70% !important;
+}
+.DayPickerInput input{
+    background-color: var(--grey) !important;
+    color:var(--textColor) !important;
+}
+input{
+    border: 2px solid var(--grey);
+    border-radius: 4px;
 }

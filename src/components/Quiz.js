@@ -1498,8 +1498,10 @@ const Quiz = ({ history }) => {
                   paddingLeft: 15,
                   transition: "0.5s ease",
                   marginTop: 0,
+                  // width:120
                 }}
                 onClick={startQuiz}
+                className="btn btn-new"
               >
                 <PlayCircle size={22} color="white" />
                 <p
@@ -1510,7 +1512,7 @@ const Quiz = ({ history }) => {
                     margin: 0,
                     fontFamily: "Poppins",
                     letterSpacing: 0.8,
-                    marginLeft: 10,
+                    // marginLeft: 10,
                     marginTop: 0,
                   }}
                 >
@@ -1523,7 +1525,9 @@ const Quiz = ({ history }) => {
                   paddingLeft: 15,
                   transition: "0.5s ease",
                   marginTop: 0,
+                  // width:120
                 }}
+                className="btn btn-new"
                 onClick={endQuiz}
               >
                 <XCircle size={22} color="white" />
@@ -1535,8 +1539,9 @@ const Quiz = ({ history }) => {
                     margin: 0,
                     fontFamily: "Poppins",
                     letterSpacing: 0.8,
-                    marginLeft: 10,
-                    marginTop: 0,
+                    // marginLeft: 10,
+                    // marginTop: 0,
+                    margin:"auto"
                   }}
                 >
                   End Quiz
@@ -1599,7 +1604,7 @@ const Quiz = ({ history }) => {
                 alignItems: "center",
               }}
             >
-              <button style={{ paddingLeft: 15 }} onClick={submitQuiz}>
+              <button className="btn btn-new" style={{ paddingLeft: 15 }} onClick={submitQuiz}>
                 <p
                   style={{
                     fontSize: 16,
@@ -1608,7 +1613,7 @@ const Quiz = ({ history }) => {
                     margin: 0,
                     fontFamily: "Poppins",
                     letterSpacing: 0.8,
-                    marginLeft: 5,
+                    // marginLeft: 5,
                   }}
                 >
                   Submit
@@ -1724,7 +1729,9 @@ const Quiz = ({ history }) => {
             onClick={() => {
               postQuizSubmission();
               closeModal();
+              
             }}
+            className = "btn btn-new"
           >
             <p
               style={{
@@ -1741,7 +1748,7 @@ const Quiz = ({ history }) => {
           </button>
           <button
             style={{ backgroundColor: "transparent", boxShadow: "none" }}
-            onClick={closeModal}
+            onClick={closeModal} className = "btn btn-new"
           >
             <p
               style={{
@@ -1845,6 +1852,7 @@ const Quiz = ({ history }) => {
               onClick={() => {
                 closeModalResult();
               }}
+              className="btn btn-new"
             >
               <p
                 style={{

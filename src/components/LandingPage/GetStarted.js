@@ -7,6 +7,7 @@ import {
   Codesandbox,
 } from "react-feather";
 import "../../App.css";
+// import 
 
 // Right section of Landing page
 const Features = () => {
@@ -99,12 +100,13 @@ const GetStarted = ({ goNext }) => {
       <Features />
 
       <div style={{ marginTop: "10%" }}>
-        <button onClick={() => goAboutUs()} style={{margin:"10px"}}>
+        <button onClick={() => goAboutUs()} style={{margin:"10px"}} className="btn btn-new">
+
           <p
             style={{
               fontSize: 17,
               fontWeight: 600,
-              color: "black",
+              // color: "black",
               margin: 0,
               fontFamily: "Poppins",
               letterSpacing: 0.4,
@@ -119,12 +121,12 @@ const GetStarted = ({ goNext }) => {
             style={{ marginLeft: "0.5rem" }}
           /> */}
         </button>
-        <button onClick={() => goNext()} style={{margin:"10px"}}>
+        <button onClick={() => goNext()} style={{margin:"10px"}} className="btn btn-new">
           <p
             style={{
               fontSize: 17,
               fontWeight: 600,
-              color: "black",
+              // color: "black",
               margin: 0,
               fontFamily: "Poppins",
               letterSpacing: 0.4,

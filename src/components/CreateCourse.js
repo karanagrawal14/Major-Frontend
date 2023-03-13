@@ -345,7 +345,7 @@ const CreateCourse = (props) => {
 
                 <div style={{ flexGrow: 1, marginRight: 15 }}>
                   <p
-                    className="changeColor"
+                    className="changeColor "
                     style={{
                       fontFamily: "Poppins",
                       fontSize: 16,
@@ -357,6 +357,7 @@ const CreateCourse = (props) => {
                       marginTop: 25,
                       marginBottom: 0,
                     }}
+                    
                   >
                     Course Name
                   </p>
@@ -365,6 +366,7 @@ const CreateCourse = (props) => {
                     style={{ height: 40 }}
                     value={courseName}
                     onChange={(t) => setCourseName(t.target.value)}
+                    className ="changeColor changeColorBG"
                   ></input>
                 </div>
               </div>
@@ -390,6 +392,7 @@ const CreateCourse = (props) => {
                 style={{ height: 40 }}
                 value={description}
                 onChange={(t) => setDescription(t.target.value)}
+                className="changeColor changeColorBG"
               ></input>
 
               <p
@@ -501,6 +504,7 @@ const CreateCourse = (props) => {
                   type="text"
                   style={{ height: 40 }}
                   onChange={(t) => setCode(t.target.value)}
+                  className="changeColor changeColorBG"
                 ></input>
 
                 <p
@@ -611,6 +615,7 @@ const CreateCourse = (props) => {
           >
             <button
               onClick={userType === "teacher" ? createCourse : joinCourse}
+              className="btn btn-new"
             >
               <p
                 style={{
@@ -628,6 +633,7 @@ const CreateCourse = (props) => {
             <button
               style={{ backgroundColor: "transparent", boxShadow: "none" }}
               onClick={closeModal}
+              className="btn btn-new"
             >
               <p
                 style={{

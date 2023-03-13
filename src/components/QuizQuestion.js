@@ -607,6 +607,7 @@ const QuizQuestion = ({ history }) => {
                 placeholder="Enter question"
                 value={questionTitle}
                 onChange={(t) => setQuestionTitle(t.target.value)}
+                className="changeColor changeColorBG"
               ></input>
 
               <p
@@ -679,6 +680,7 @@ const QuizQuestion = ({ history }) => {
                         placeholder="Option One"
                         value={option1}
                         onChange={(t) => setO1(t.target.value)}
+                        className="changeColor changeColorBG"
                       ></input>
                     </div>
                     <div
@@ -721,6 +723,7 @@ const QuizQuestion = ({ history }) => {
                         placeholder="Option Two"
                         value={option2}
                         onChange={(t) => setO2(t.target.value)}
+                        className="changeColor changeColorBG"
                       ></input>
                     </div>
                   </div>
@@ -772,6 +775,7 @@ const QuizQuestion = ({ history }) => {
                         placeholder="Option Three"
                         value={option3}
                         onChange={(t) => setO3(t.target.value)}
+                        className="changeColor changeColorBG"
                       ></input>
                     </div>
                     <div
@@ -814,11 +818,12 @@ const QuizQuestion = ({ history }) => {
                         placeholder="Option Four"
                         value={option4}
                         onChange={(t) => setO4(t.target.value)}
+                        className="changeColor changeColorBG"
                       ></input>
                     </div>
                   </div>
                 </div>
-                <button
+                <button className="btn btn-new"
                   onClick={addNewQuestion}
                   style={{ height: 50, marginTop: 50 }}
                 >
@@ -851,6 +856,7 @@ const QuizQuestion = ({ history }) => {
                 placeholder="Enter question"
                 value={textualQuestionTitle}
                 onChange={(t) => setTextualQuestionTitle(t.target.value)}
+                className="changeColor changeColorBG"
               ></input>
 
               <div style={{ display: "flex", flexDirection: "row" }}>
@@ -912,6 +918,7 @@ const QuizQuestion = ({ history }) => {
                             }
                           }
                         }}
+                        className="changeColor changeColorBG"
                       />
                     </div>
                     <div
@@ -947,6 +954,7 @@ const QuizQuestion = ({ history }) => {
                         placeholder="Enter min characters"
                         value={minChar}
                         onChange={(t) => setMinChar(t.target.value)}
+                        className="changeColor changeColorBG"
                       />
                     </div>
                     <div
@@ -982,6 +990,7 @@ const QuizQuestion = ({ history }) => {
                         placeholder="Enter max marks"
                         value={textualQuesMarks}
                         onChange={(t) => setTQM(t.target.value)}
+                        className="changeColor changeColorBG"
                       />
                     </div>
                   </div>
@@ -1029,6 +1038,7 @@ const QuizQuestion = ({ history }) => {
                   </div>
                 </div>
                 <button
+                  className="btn btn-new"
                   onClick={addNewQuestionTextual}
                   style={{ height: 50, marginTop: 50 }}
                 >
@@ -1129,6 +1139,7 @@ const QuizQuestion = ({ history }) => {
               }
               openModal();
             }}
+            className="btn btn-new"
           >
             <p
               style={{
@@ -1144,6 +1155,7 @@ const QuizQuestion = ({ history }) => {
             </p>
           </button>
           <button
+            className="btn btn-new"
             style={{ boxShadow: "none", backgroundColor: "transparent" }}
             onClick={() => {
               let loc = window.location.href.split("/");
@@ -1224,6 +1236,7 @@ const QuizQuestion = ({ history }) => {
           style={{ height: 40 }}
           value={quizName}
           onChange={(t) => setQuizName(t.target.value)}
+          className="changeColor changeColorBG"
         ></input>
 
         <ul style={{ margin: 0, padding: 0, marginLeft: 20 }}>
@@ -1280,6 +1293,7 @@ const QuizQuestion = ({ history }) => {
               createQuiz();
               closeModal();
             }}
+            className="btn btn-new"
           >
             <p
               style={{
@@ -1297,6 +1311,7 @@ const QuizQuestion = ({ history }) => {
           <button
             style={{ backgroundColor: "transparent", boxShadow: "none" }}
             onClick={closeModal}
+            className="btn btn-new"
           >
             <p
               style={{

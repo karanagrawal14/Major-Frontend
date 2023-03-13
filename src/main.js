@@ -2,7 +2,11 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import "./Navbar.css";
 import "./main.css";
-import Slide from "./Slide";
+import "./components/css/Course.css";
+// import Slide from "./Slide";
+let localdata = JSON.parse(localStorage.getItem("userDetails"));
+let userType = JSON.parse(localStorage.getItem("userType"));
+let theme = JSON.parse(localStorage.getItem("theme"));
 class Application extends React.Component {
   constructor(props) {
     super(props);
@@ -93,8 +97,8 @@ class Application extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h1 className="center" style={{marginTop:"20px", marginBottom:"20px",textAlign:"center"}}>Welcome to E-library</h1>
+      <div className="course-container" >
+        <h1 className="changeColor" style={{marginTop:"80px",textAlign:"center"}}>Welcome to E-library</h1>
        <div style={{textAlign:"center"}}>
        <input
           type="text"
@@ -102,7 +106,8 @@ class Application extends React.Component {
           placeholder="Search Book"
           name="header-search"
           onChange={(e) => this.update(e)}
-          style={{ height: "30px", margin: "0px", border: "2px solid black" }}
+          // style={{ height: "30px", margin: "0px", border: "2px solid black" }}
+          className="changeColor changeColorBG"
         />
         <span
           style={{
@@ -122,11 +127,11 @@ class Application extends React.Component {
             ? this.state.books.map((books) => {
                 const { id, name, author, pub_year, copies } = books;
                 return (
-                  <div  style={{margin:"15px"}} key={id} class="card">
-                    <p class="name">{name}</p>
-                    <p class="author">By- {author}</p>
-                    <p class="year">{pub_year}</p>
-                    <div class="des">
+                  <div  style={{margin:"15px"}} key={id} class="card changeColorBG">
+                    <p class="name ">{name}</p>
+                    <p class="author changeColor">By- {author}</p>
+                    <p class="year changeColor">{pub_year}</p>
+                    <div class="des changeColor">
                       <div class="copy" onClick={() => this.issue(id)}>
                         Issue
                       </div>
@@ -138,12 +143,12 @@ class Application extends React.Component {
             : this.state.search_array.map((books) => {
                 const { id, name, author, pub_year, copies } = books;
                 return (
-                  <div key={id} class="card">
-                    <p class="name">{name}</p>
-                    <p class="author">By- {author}</p>
-                    <p class="year">{pub_year}</p>
-                    <div class="des">
-                      <div class="copy" onClick={() => this.issue(id)}>
+                  <div key={id} class="card changeColorBG">
+                    <p class="name ">{name}</p>
+                    <p class="author changeColor">By- {author}</p>
+                    <p class="year changeColor">{pub_year}</p>
+                    <div class="des changeColor">
+                      <div class="copy changeColor" onClick={() => this.issue(id)}>
                         Issue
                       </div>
                       <div class="copies">No. of copies - {copies}</div>
