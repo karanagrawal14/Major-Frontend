@@ -78,7 +78,7 @@
     width: 80%;
     margin-left: 20%;
     background-color: var(--background);
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     padding: 0.2rem 1.4rem;
     min-height: calc(100vh - 80px);
