@@ -61,21 +61,6 @@ const LandingPage = () => {
           }}
         >
           {/* <BookOpen size={35} color="#6C63FF" /> */}
-          <img className="logoimg" src={logo}/>
-          <div style={{ alignItems: "flex-start", display: "flex" }}>
-            <p
-              style={{
-                fontFamily: "Poppins",
-                fontSize: 30,
-                color: "#232323",
-                fontWeight: 600,
-                paddingLeft: 10,
-                margin: 0,
-              }}
-            >
-              SGSITS
-            </p>
-          </div>
         </div>
         <img
         

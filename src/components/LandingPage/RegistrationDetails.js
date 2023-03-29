@@ -186,16 +186,26 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
 
   return (
     <React.Fragment>
+      <div 
+        style={{
+          padding: "30px",
+          backgroundColor: "white",
+          borderRadius: "10px",
+          boxShadow: "0px 0px 5px 5px rgba(0, 0, 0, .2)",
+          height:"700px",
+          marginTop:"60px",
+          marginRight:"30px"
+        }}
+        >
       <ArrowLeft
         size={25}
         color="#545454"
         onClick={() => goBack()}
-        style={{ cursor: "pointer", position: "absolute" }}
+        style={{ cursor: "pointer" }}
       />
       <div
         style={{
-          position: "absolute",
-          right: 30,
+          float:"right",
           fontFamily: "Poppins",
           fontSize: 16,
           color: "#6C63FF",
@@ -206,15 +216,16 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
       >
         Already have an account ? Login now
       </div>
-
+      <div style={{display:"flex", flexDirection:"column",justifyContent:"center",alignItems:"center"}}> 
       <div
         style={{
           width: "auto",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          paddingTop: "5%",
-          marginTop: 10,
+              display: "flex",
+              flexDirection: "row",
+              justifyContent:"center",
+              alignItems: "center",
+              paddingTop: "5%",
+              marginTop: 10,
         }}
       >
         <div
@@ -256,20 +267,15 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
           </p>
         </div>
       </div>
-
-      <br />
-
-      {/* User Type */}
-
       <p
         style={{
           fontFamily: "Poppins",
           fontSize: 16,
           color: "#545454",
           fontWeight: 600,
-          margin: 0,
-          textAlign: "left",
+          textAlign: "center",
           marginBottom: "0.5rem",
+          marginTop:"30px"
         }}
       >
         Are you a student or a teacher/instructor ?
@@ -280,6 +286,7 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
+          justifyContent:"center"
         }}
       >
         <div
@@ -322,10 +329,8 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
             <span class="checkmark"></span>
           </label>
         </div>
-      </div>
-
-      {/* Name */}
-      <p
+        </div>
+        <p
         style={{
           fontFamily: "Poppins",
           fontSize: 16,
@@ -344,31 +349,26 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
           width: "100%",
           display: "flex",
           flexDirection: "row",
+          justifyContent:"center",
           alignItems: "center",
         }}
       >
-        <div
-          style={{ width: "50%", alignItems: "flex-start", display: "flex" }}
-        >
-          <input placeholder="First Name" onChange={onChangefName} />
-        </div>
-        <div style={{ width: "50%" }}>
-          <input placeholder="Last Name" onChange={onChangelName} />
-        </div>
+          <input placeholder="First Name" style={{ width:"15vw",height:"5vh",marginRight:"10px" }} onChange={onChangefName} />
+          <input placeholder="Last Name" style={{ width:"15vw",height:"5vh",marginLeft:"10px" }} onChange={onChangelName} />
       </div>
-
       {isStudent ? (
         <div
           style={{
             width: "100%",
             display: "flex",
             flexDirection: "row",
+            justifyContent:"center",
             alignItems: "center",
-            marginTop: 5,
+            marginTop: 20,
           }}
         >
           <div
-            style={{ width: "50%", display: "flex", flexDirection: "column" }}
+            style={{display: "flex", flexDirection: "column",marginLeft:"90px" }}
           >
             <p
               style={{
@@ -392,6 +392,7 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
             >
               <Dropdown
                 options={yearOptions}
+                style={{width:"300px"}}
                 onChange={(option) => setStudentClass(option.value)}
                 value={yearOptions[0].value}
                 placeholder="Select an option"
@@ -400,7 +401,7 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
             </div>
           </div>
           <div
-            style={{ width: "50%", display: "flex", flexDirection: "column" }}
+            style={{display: "flex", flexDirection: "column",marginLeft:"50px" }}
           >
             <p
               style={{
@@ -434,13 +435,12 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
         </div>
       ) : null}
 
-      {/* Email Password */}
-
-      <div
+        <div
         style={{
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
+          justifyContent:"center",
           marginTop: 25,
         }}
       >
@@ -463,23 +463,25 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
           width: "100%",
           display: "flex",
           flexDirection: "row",
+          justifyContent:"center",
           alignItems: "center",
           marginTop: 10,
         }}
       >
         <div
-          style={{ width: "50%", alignItems: "flex-start", display: "flex" }}
+          style={{ alignItems: "flex-start", display: "flex" }}
         >
           <input
             type="email"
             placeholder="Email ID"
             onChange={onChangeEmail}
+            style={{ width:"15vw",height:"5vh",borderRadius:"3px" ,marginRight:"10px" }}
             onBlur={() =>
               validateEmail() ? null || true : toast.error("Invalid Email ID")
             }
           />
         </div>
-        <div style={{ width: "50%" }}>
+        <div>
           <div
             style={{
               display: "inline-flex",
@@ -491,7 +493,7 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
               type={viewPassword ? "password" : "text"}
               placeholder="Password (Min length 5)"
               onChange={onChangePassword}
-              style={{ marginRight: 0 }}
+              style={{ width:"15vw",height:"5vh",borderRadius:"3px",marginLeft:"10px" }}
               onBlur={() =>
                 validatePassword()
                   ? null
@@ -503,8 +505,7 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
                 size={22}
                 color="#ababab"
                 style={{
-                  position: "absolute",
-                  left: "85%",
+                  marginLeft:"20px",
                   zIndex: 12,
                   marginTop: 10,
                   cursor: "pointer",
@@ -516,8 +517,7 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
                 size={22}
                 color="#ababab"
                 style={{
-                  position: "absolute",
-                  left: "85%",
+                  marginLeft:"20px",
                   zIndex: 12,
                   marginTop: 10,
                   cursor: "pointer",
@@ -528,10 +528,9 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
           </div>
         </div>
       </div>
-
       <div
         style={{
-          marginTop: 20,
+          marginTop: 40,
           alignItems: "flex-end",
           display: "flex",
           flexDirection: "column",
@@ -556,6 +555,9 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
             Register
           </p>
         </button>
+      </div>
+     </div>
+      <br />
       </div>
     </React.Fragment>
   );

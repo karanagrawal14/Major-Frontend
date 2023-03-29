@@ -131,15 +131,25 @@ const Login = ({
   return (
     <React.Fragment>
       {forgotPassword ? (
-        <div>
+         <div 
+         style={{
+           padding: "30px",
+           backgroundColor: "white",
+           borderRadius: "10px",
+           boxShadow: "0px 0px 5px 5px rgba(0, 0, 0, .2)",
+           height:"600px",
+           marginTop:"20px",
+           marginRight:"30px"
+         }}
+         >
           <ArrowLeft
             size={25}
             color="#545454"
             onClick={() => goBack()}
             style={{ cursor: "pointer", position: "absolute" }}
           />
-
-          <div
+          <div style={{display:"flex", flexDirection:"column",justifyContent:"center",alignItems:"center"}}> 
+            <div
             style={{
               width: "auto",
               display: "flex",
@@ -176,7 +186,7 @@ const Login = ({
                   fontSize: 26,
                 }}
               >
-                Forgot password?
+                 Forgot password?
               </h2>
               <p
                 style={{
@@ -187,7 +197,7 @@ const Login = ({
                   margin: 0,
                 }}
               >
-                Enter registered email id to get password reset link
+                 Enter registered email id to get password reset link
               </p>
             </div>
           </div>
@@ -198,7 +208,7 @@ const Login = ({
               color: "#545454",
               fontWeight: 600,
               margin: 0,
-              textAlign: "left",
+              textAlign: "center",
               marginBottom: "0.5rem",
               marginTop: 30,
             }}
@@ -210,6 +220,7 @@ const Login = ({
               width: "100%",
               display: "flex",
               flexDirection: "row",
+              justifyContent:"center",
               alignItems: "center",
             }}
           >
@@ -262,12 +273,12 @@ const Login = ({
               </label>
             </div>
           </div>
-
           <div
             style={{
               width: "100%",
               display: "flex",
               flexDirection: "row",
+              justifyContent:"center",
               alignItems: "center",
               marginTop: 40,
             }}
@@ -285,9 +296,8 @@ const Login = ({
             </p>
             <div
               style={{
-                width: "70%",
                 alignItems: "flex-start",
-                paddingLeft: "30%",
+                marginLeft:"30px",
                 display: "flex",
               }}
             >
@@ -295,6 +305,7 @@ const Login = ({
                 type="email"
                 placeholder="Email ID"
                 onChange={onChangeEmail}
+                style={{ width:"15vw",height:"5vh" }}
                 onBlur={() =>
                   validateEmail()
                     ? null || true
@@ -303,17 +314,16 @@ const Login = ({
               />
             </div>
           </div>
-
           <div
             style={{
-              marginTop: 20,
+              marginTop: 60,
               alignItems: "flex-end",
               display: "flex",
               flexDirection: "column",
-              marginRight: 10,
             }}
           >
-            <button onClick={forgotPasswordLink}>
+            <button onClick={forgotPasswordLink}
+            className="btn btn-new">
               <p
                 style={{
                   fontSize: 16,
@@ -328,21 +338,31 @@ const Login = ({
               </p>
             </button>
           </div>
+          </div>
 
           <br />
         </div>
       ) : (
-        <div>
+        <div 
+        style={{
+          padding: "30px",
+          backgroundColor: "white",
+          borderRadius: "10px",
+          boxShadow: "0px 0px 5px 5px rgba(0, 0, 0, .2)",
+          height:"700px",
+          marginTop:"60px",
+          marginRight:"30px"
+        }}
+        >
           <ArrowLeft
             size={25}
             color="#545454"
             onClick={() => goBack()}
-            style={{ cursor: "pointer", position: "absolute" }}
+            style={{ cursor: "pointer"}}
           />
           <div
             style={{
-              position: "absolute",
-              right: 30,
+              float:"right",
               fontFamily: "Poppins",
               fontSize: 16,
               color: "#6C63FF",
@@ -353,8 +373,8 @@ const Login = ({
           >
             New here ? Register now
           </div>
-
-          <div
+            <div style={{display:"flex", flexDirection:"column",justifyContent:"center",alignItems:"center"}}> 
+            <div
             style={{
               width: "auto",
               display: "flex",
@@ -406,8 +426,7 @@ const Login = ({
               </p>
             </div>
           </div>
-
-          <p
+            <p
             style={{
               fontFamily: "Poppins",
               fontSize: 16,
@@ -421,18 +440,11 @@ const Login = ({
           >
             Log in as a student or a teacher/instructor ?
           </p>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
             <div
               style={{
                 display: "flex",
                 flexDirection: "row",
+                justifyContent:"center",
                 alignItems: "center",
               }}
             >
@@ -477,8 +489,6 @@ const Login = ({
                 <span class="checkmark"></span>
               </label>
             </div>
-          </div>
-
           <div
             style={{
               display: "flex",
@@ -497,60 +507,48 @@ const Login = ({
                 textAlign: "left",
               }}
             >
-              Email and Password
+              Enter Your Registered Email & Password
             </p>
           </div>
-
           <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              marginTop: 10,
-            }}
-          >
-            <div
               style={{
-                width: "50%",
-                alignItems: "flex-start",
                 display: "flex",
+                marginTop:"10px"
               }}
             >
               <input
                 type="email"
                 placeholder="Email ID"
                 onChange={onChangeEmail}
+                style={{ width:"15vw",height:"5vh" }}
                 onBlur={() =>
                   validateEmail()
                     ? null || true
                     : toast.error("Invalid Email ID")
                 }
               />
-            </div>
-            <div style={{ width: "50%" }}>
               <div
                 style={{
                   display: "inline-flex",
-                  position: "relative",
+                  justifyContent:"center",
                   width: "100%",
                 }}
               >
+                <div>
                 <input
                   type={viewPassword ? "password" : "text"}
                   placeholder="Password"
                   onChange={onChangePassword}
-                  style={{ marginRight: 0 }}
+                  style={{ width:"15vw",height:"5vh" }}
                 />
+                </div>
                 {viewPassword ? (
                   <Eye
                     size={22}
                     color="#ababab"
                     style={{
-                      position: "absolute",
-                      left: "85%",
-                      zIndex: 12,
                       marginTop: 10,
+                      marginLeft:"20px",
                       cursor: "pointer",
                     }}
                     onClick={() => setViewPassword(!viewPassword)}
@@ -560,10 +558,8 @@ const Login = ({
                     size={22}
                     color="#ababab"
                     style={{
-                      position: "absolute",
-                      left: "85%",
-                      zIndex: 12,
                       marginTop: 10,
+                      marginLeft:"20px",
                       cursor: "pointer",
                     }}
                     onClick={() => setViewPassword(!viewPassword)}
@@ -571,10 +567,32 @@ const Login = ({
                 )}
               </div>
             </div>
+              <button style={{width:"10vw",marginTop:"80px"}}
+              onClick={userType === "student" ? loginStudent : loginTeacher}
+              className="btn btn-new"
+            >
+              <p
+                style={{
+                  fontSize: 16,
+                  fontWeight: 600,
+                  color: "white",
+                  textAlignLast:"center",
+                  // backgroundColor: "#6C63FF",
+                  margin: 0,
+                  fontFamily: "Poppins",
+                  letterSpacing: 0.4,
+                }}
+              >
+                Login
+              </p>
+            </button>
           </div>
+                  
+          <br />
           <div
             style={{
-              right: 30,
+              marginTop:"100px",
+              float:"right",
               fontFamily: "Poppins",
               fontSize: 15,
               color: "#6C63FF",
@@ -587,36 +605,6 @@ const Login = ({
           >
             Forgot password?
           </div>
-          <div
-            style={{
-              marginTop: 20,
-              alignItems: "flex-end",
-              display: "flex",
-              flexDirection: "column",
-              marginRight: 10,
-            }}
-          >
-            <button
-              onClick={userType === "student" ? loginStudent : loginTeacher}
-              className="btn btn-new"
-            >
-              <p
-                style={{
-                  fontSize: 16,
-                  fontWeight: 600,
-                  color: "white",
-                  // backgroundColor: "#6C63FF",
-                  margin: 0,
-                  fontFamily: "Poppins",
-                  letterSpacing: 0.4,
-                }}
-              >
-                Login
-              </p>
-            </button>
-          </div>
-
-          <br />
         </div>
       )}
     </React.Fragment>
