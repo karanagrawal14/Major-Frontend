@@ -64,9 +64,10 @@ h1{
     font-family: cursive;
 }
 .copy{
-    color: blue;
+    /* color: blue; */
     width:100px;
-    cursor: pointer;
+    margin: auto;
+    /* cursor: pointer; */
 }
 .copies{
     width:120px

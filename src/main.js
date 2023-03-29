@@ -15,8 +15,7 @@ import {
   Col,
   Row,
   CardSubtitle,
-
-  Button
+  Button,
 } from "reactstrap";
 // import React from 'react';
 import {
@@ -25,9 +24,9 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBCardImage,
-  MDBBtn
-} from 'mdb-react-ui-kit';
-const baseURL = "http://localhost:8000/"
+  MDBBtn,
+} from "mdb-react-ui-kit";
+const baseURL = "http://localhost:8000/";
 // import Slide from "./Slide";
 let localdata = JSON.parse(localStorage.getItem("userDetails"));
 let userType = JSON.parse(localStorage.getItem("userType"));
@@ -47,7 +46,7 @@ class Application extends React.Component {
     this.issue = this.issue.bind(this);
     this.getTopIssued = this.getTopIssued.bind(this);
   }
-  
+
   logout() {
     localStorage.removeItem("email");
     localStorage.removeItem("role");
@@ -68,7 +67,7 @@ class Application extends React.Component {
           author: `${article.author}`,
           pub_year: `${article.pub_year}`,
           copies: `${article.copies}`,
-          image:`${article.image}`
+          image: `${article.image}`,
         }))
       )
       .then((articles) => {
@@ -91,8 +90,6 @@ class Application extends React.Component {
           pub_year: `${article.pub_year}`,
           times_issued: `${article.times_issued}`,
           copies: `${article.copies}`,
-          
-
         }))
       )
       .then((articles) => {
@@ -126,35 +123,40 @@ class Application extends React.Component {
   }
   render() {
     return (
-      <div className="course-container cc" >
-        <h1 className="changeColor" style={{marginTop:"80px",textAlign:"center"}}>Welcome to E-library</h1>
-       <div style={{textAlign:"center"}}>
-       <input
-          type="text"
-          id="header-search"
-          placeholder="Search Book"
-          name="header-search"
-          onChange={(e) => this.update(e)}
-          // style={{ height: "30px", margin: "0px", border: "2px solid black" }}
-          className="changeColor changeColorBG"
-        />
-        <span
-          style={{
-            marginLeft: "20px",
-            fontSize: "30px",
-            fontWeight: "bold",
-            color: "brown",
-            padding: "20px",
-          }}
+      <div className="course-container cc">
+        <h1
+          className="changeColor"
+          style={{ marginTop: "80px", textAlign: "center" }}
         >
-          Search Book By Name
-        </span>
-       </div>
+          Welcome to E-library
+        </h1>
+        <div style={{ textAlign: "center" }}>
+          <input
+            type="text"
+            id="header-search"
+            placeholder="Search Book"
+            name="header-search"
+            onChange={(e) => this.update(e)}
+            // style={{ height: "30px", margin: "0px", border: "2px solid black" }}
+            className="changeColor changeColorBG"
+          />
+          <span
+            style={{
+              marginLeft: "20px",
+              fontSize: "30px",
+              fontWeight: "bold",
+              color: "brown",
+              padding: "20px",
+            }}
+          >
+            Search Book By Name
+          </span>
+        </div>
 
-        <div style={{marginTop:"20px",marginBottom:"40px"}} class="flex">
+        <div style={{ marginTop: "20px", marginBottom: "40px" }} class="flex">
           {this.state.search_field === ""
             ? this.state.books.map((books) => {
-                const { id, name, author, pub_year, copies,image } = books;
+                const { id, name, author, pub_year, copies, image } = books;
                 return (
                   // <div  style={{margin:"15px"}} key={id} class="card changeColorBG">
                   //   <p class="name ">{name}</p>
@@ -168,61 +170,92 @@ class Application extends React.Component {
                   //     <div class="copies">No. of copies - {copies}</div>
                   //   </div>
                   // </div>
-                  <div style={{margin:"15px"}} key={id} >
-                  
-                 
-                  <Card
-  style={{
-    width: '18rem'
-  }}
-  className="changeColorBG"
->
-  <img
-    alt="Sample"
-    src={baseURL+image}
-    className="newh"
-  />
-  <CardBody>
-    <CardTitle tag="h5" className="changeColor">
-      {name}
-    </CardTitle>
-    <CardSubtitle
-      className="mb-2 changeColor"
-      tag="h6"
-    >
-    By:  {author}
-    </CardSubtitle>
-    <CardSubtitle
-      className="text-muted mb-2"
-      tag="h6"
-    >
-    {pub_year}
-    </CardSubtitle>
-    <CardText className="changeColor">
-      Number of Copies : {copies}
-    </CardText>
-    {/* <Button className="btn btn-new">
-      Button
-    </Button> */}
-  </CardBody>
-</Card>
-                      
-               </div>
+                  <div style={{ margin: "15px" }} key={id}>
+                    <Card
+                      style={{
+                        width: "18rem",
+                      }}
+                      className="changeColorBG"
+                    >
+                      <img 
+                        alt="Sample"
+                        src={baseURL + image}
+                        className="newh "
+                      />
+                      <CardBody>
+                        <CardTitle tag="h5" className="changeColor">
+                          {name}
+                        </CardTitle>
+                        <CardSubtitle className="mb-2 changeColor" tag="h6">
+                          By: {author}
+                        </CardSubtitle>
+                        <CardSubtitle className="text-muted mb-2" tag="h6">
+                          {pub_year}
+                        </CardSubtitle>
+                        <CardText className="changeColor">
+                          Number of Copies : {copies}
+                        </CardText>
+                        <Button
+                          className=" btn btn-new"
+                          onClick={() => this.issue(id)}
+                        >
+                          Issue
+                        </Button>
+                      </CardBody>
+                    </Card>
+                  </div>
                 );
               })
             : this.state.search_array.map((books) => {
-                const { id, name, author, pub_year, copies } = books;
+                const { id, name, author, pub_year, copies,image } = books;
                 return (
-                  <div key={id} class="card changeColorBG">
-                    <p class="name ">{name}</p>
-                    <p class="author changeColor">By- {author}</p>
-                    <p class="year changeColor">{pub_year}</p>
-                    <div class="des changeColor">
-                      <div class="copy changeColor" onClick={() => this.issue(id)}>
-                        Issue
-                      </div>
-                      <div class="copies">No. of copies - {copies}</div>
-                    </div>
+                  // <div key={id} class="card changeColorBG">
+                  //   <p class="name ">{name}</p>
+                  //   <p class="author changeColor">By- {author}</p>
+                  //   <p class="year changeColor">{pub_year}</p>
+                  //   <div class="des changeColor">
+                  //     <div
+                  //       class="copy changeColor"
+                  //       onClick={() => this.issue(id)}
+                  //     >
+                  //       Issue
+                  //     </div>
+                  //     <div class="copies">No. of copies - {copies}</div>
+                  //   </div>
+                  // </div>
+                  <div style={{ margin: "15px" }} key={id}>
+                    <Card
+                      style={{
+                        width: "18rem",
+                      }}
+                      className="changeColorBG"
+                    >
+                      <img
+                        alt="Sample"
+                        src={baseURL + image}
+                        className="newh"
+                      />
+                      <CardBody>
+                        <CardTitle tag="h5" className="changeColor">
+                          {name}
+                        </CardTitle>
+                        <CardSubtitle className="mb-2 changeColor" tag="h6">
+                          By: {author}
+                        </CardSubtitle>
+                        <CardSubtitle className="text-muted mb-2" tag="h6">
+                          {pub_year}
+                        </CardSubtitle>
+                        <CardText className="changeColor">
+                          Number of Copies : {copies}
+                        </CardText>
+                        <Button
+                          className=" btn btn-new"
+                          onClick={() => this.issue(id)}
+                        >
+                          Issue
+                        </Button>
+                      </CardBody>
+                    </Card>
                   </div>
                 );
               })}

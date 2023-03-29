@@ -183,7 +183,7 @@ function About(props) {
                 /></a>
               </Media>
               <Media body className="col-12 fbody">
-                <Media heading ><a href="https://www.sgsits.ac.in/files/downloads/DKMishra.pdf">Dr. P. P. Bansod</a></Media>
+                <Media heading ><a href="https://www.sgsits.ac.in/files/downloads/DKMishra.pdf">Dr. D. K. Mishra</a></Media>
                 <p>Designation: Professor & Head</p>
                 <p>Employee ID: 03300182</p>
                 <p>Qualification:  Ph. D. , M.E., B.E</p>
