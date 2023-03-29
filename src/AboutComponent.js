@@ -149,7 +149,7 @@ function About(props) {
           <h2 className="">Faculty Members</h2>
         </div>
         <div className=" col-12">
-          <Media list className="row justify-content-between ">
+          <Media list className="row row-aboutus justify-content-between ">
           {/* <div className="col-12 mt-5"> */}
             {/* <Media>
               <Media left href="#">

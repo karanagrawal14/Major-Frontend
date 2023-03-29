@@ -18,14 +18,14 @@ import {
   Button,
 } from "reactstrap";
 // import React from 'react';
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardImage,
-  MDBBtn,
-} from "mdb-react-ui-kit";
+// import {
+//   MDBCard,
+//   MDBCardBody,
+//   MDBCardTitle,
+//   MDBCardText,
+//   MDBCardImage,
+//   MDBBtn,
+// } from "mdb-react-ui-kit";
 const baseURL = "http://localhost:8000/";
 // import Slide from "./Slide";
 let localdata = JSON.parse(localStorage.getItem("userDetails"));
