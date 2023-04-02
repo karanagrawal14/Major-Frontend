@@ -11,14 +11,33 @@ import Notes from "./components/Notes";
 import Search from "./components/Search";
 import Course from "./components/Course";
 import Quiz from "./components/Quiz";
+import Attendance from "./components/Attendance";
 import AssignmentDetails from "./components/AssignmentDetails";
 import AssessmentReport from "./components/AssessmentReport";
 import QuizQuestion from "./components/QuizQuestion";
 import ResetPassword from "./components/LandingPage/ResetPassword";
 import About from './AboutComponent.js';
 import Application  from './main';
-
+import Admin from "./Admin";
+import Extra from "./extra";
+// import LandPage from "./components/newSp";
+const b = localStorage.getItem("userType");
+  const userType = b ? JSON.parse(b) : "student";
 function App() {
+  const ApplicationPage=()=>{
+    if(userType==="student")
+    {
+      return(
+        <><Application/><Sidebar/></>
+      )
+    }
+    else{
+      return(
+      <><Admin/><Sidebar/></>
+      // <div></div>
+      )
+    }
+  }
   return(
     <div>
     <BrowserRouter>
@@ -29,14 +48,19 @@ function App() {
       <Route exact path="/home" render={()=><><Home/> <Sidebar/></>}/>
       <Route path="/notes" render={()=><><Notes /><Sidebar /></>}exact/>
       {/* <Route exact path="/books" component={Application}/> */}
-      <Route path='/books' render={()=><><Application/><Sidebar/></>}/>
+      {/* <Route path='/books' render={()=><><Application/><Sidebar/></>}/> */}
       <Route exact path="/aboutus" component={About}/>
       <Route path="/search" render={()=><><Search /><Sidebar /></>} exact/>
       <Route path="/course/*" render={()=><><Course /><Sidebar /></>}exact/>
       <Route path="/assignment/*" render={()=><><AssignmentDetails /><Sidebar /></>}exact/>
       <Route path="/assessmentReport/*" render={()=><><AssessmentReport /><Sidebar /></>}exact/>
       <Route path="/quiz/*" render={()=><><Quiz /><Sidebar /></>}exact/>
+      <Route path="/attendance/*" render={()=><><Attendance/><Sidebar/></>} exact/>
+      <Route path="/books" render={ApplicationPage}/>
       <Route path="/createQuiz/*" render={()=><><QuizQuestion /><Sidebar /></>}exact/>
+      {/* <Route path="/extra" render={Extra}/> */}
+      {/* <Route path="/lp" render={LandPage}/> */}
+
       </Switch> 
     </BrowserRouter>
   </div>
