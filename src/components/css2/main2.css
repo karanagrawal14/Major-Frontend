@@ -461,8 +461,8 @@ button:focus {
     height: 100%;
     top: 0px;
     left: 0px;
-    background: #5533ff;
-    background: linear-gradient(95deg, #5533ff 40%, #25ddf5 100%);
+    background: #5533ff !important;
+    background: linear-gradient(95deg, #5533ff 40%, #25ddf5 100%) !important;
     -webkit-transform: skewY(-12deg);
     transform: skewY(-12deg);
     -webkit-transform-origin: 0;
@@ -491,6 +491,7 @@ button:focus {
     padding: 220px 0; }
     .hero-area .contents h2 {
       color: #fff;
+      /* color:black; */
       font-size: 38px;
       font-weight: 600;
       line-height: 60px;

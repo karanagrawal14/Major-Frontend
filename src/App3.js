@@ -20,7 +20,7 @@ import About from './AboutComponent.js';
 import Application  from './main';
 import Admin from "./Admin";
 import Extra from "./extra";
-// import LandPage from "./components/newSp";
+import LandPage from "./components/newSp";
 const b = localStorage.getItem("userType");
   const userType = b ? JSON.parse(b) : "student";
 function App() {
@@ -59,7 +59,7 @@ function App() {
       <Route path="/books" render={ApplicationPage}/>
       <Route path="/createQuiz/*" render={()=><><QuizQuestion /><Sidebar /></>}exact/>
       {/* <Route path="/extra" render={Extra}/> */}
-      {/* <Route path="/lp" render={LandPage}/> */}
+      <Route path="/lp" render={LandPage}/>
 
       </Switch> 
     </BrowserRouter>
