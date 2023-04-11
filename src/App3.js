@@ -21,6 +21,19 @@ import Application  from './main';
 import Admin from "./Admin";
 import Extra from "./extra";
 import LandPage from "./components/newSp";
+
+//new document
+import Header from "./new/comps/header/Header";
+import Sb from "./new/comps/sb/Sb";
+import  Navbar  from "./new/comps/navbar/Navbar";
+import Aboutus from './new/comps/about/About'
+import Subscription from './new/comps/subscription/Subscription'
+import Products from './new/comps/products/Products'
+import Blogs from './new/comps/blogs/Blogs'
+import Faq from './new/comps/faq/Faq'
+import Contact from './new/comps/contact/Contact'
+import Footer from './new/comps/footer/Footer'
+
 const b = localStorage.getItem("userType");
   const userType = b ? JSON.parse(b) : "student";
 function App() {
@@ -38,11 +51,37 @@ function App() {
       )
     }
   }
+  const HeaderPage=()=>{
+    return(
+      <>
+                <Sb />
+                {/* <div className = 'header'> */}
+                    <Header />
+                {/* </div> */}
+
+                <Navbar />
+
+                {/* <div className = 'body'> */}
+                    <Aboutus />
+                    <Subscription />
+                    <Products />
+                    <Blogs />
+                    <Faq />
+                    <Contact />
+                {/* </div> */}
+
+                {/* <div className = 'footer'> */}
+                    <Footer />
+                {/* </div> */}
+            </>
+    )
+  }
   return(
     <div>
     <BrowserRouter>
     {/* <Sidebar/> */}
       <Switch>
+        <Route exact path='/h' component={HeaderPage}/>
         <Route exact path='/' component={LandingPage}/>
        <Route exact path="/reset-password/*" component={ResetPassword} />
       <Route exact path="/home" render={()=><><Home/> <Sidebar/></>}/>
