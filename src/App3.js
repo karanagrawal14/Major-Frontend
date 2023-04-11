@@ -53,27 +53,27 @@ function App() {
   }
   const HeaderPage=()=>{
     return(
-      <>
+      <div >
                 <Sb />
-                {/* <div className = 'header'> */}
+                <div className = '_header'>
                     <Header />
-                {/* </div> */}
+                </div>
 
                 <Navbar />
 
-                {/* <div className = 'body'> */}
-                    <Aboutus />
+                <div className = '_body'>
+                    <About />
                     <Subscription />
                     <Products />
                     <Blogs />
                     <Faq />
                     <Contact />
-                {/* </div> */}
+                </div>
 
-                {/* <div className = 'footer'> */}
+                <div className = '_footer'>
                     <Footer />
-                {/* </div> */}
-            </>
+                </div>
+            </div>
     )
   }
   return(

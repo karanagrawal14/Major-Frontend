@@ -20,5 +20,7 @@
 .footer .container .row .c .s p .owner, .footer .container .row .c .s p .year, .footer .container .row .c .s p .fab {
   font-weight: bolder;
   color: #05a081; }
-
+  .me-2 {
+    margin-right: 0.5rem!important;
+}
 /*# sourceMappingURL=Footer.css.map */

@@ -25,5 +25,7 @@
   .blogs .container .row .c .row .c .card:hover {
     background-color: #f2f3f4;
     transform: scale(1.05); }
-
+.row{
+  align-items: flex-start;
+}
 /*# sourceMappingURL=Blogs.css.map */

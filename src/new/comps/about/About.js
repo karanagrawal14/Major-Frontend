@@ -10,7 +10,7 @@ class About extends Component
 		return (
 			<section className = 'about py-5 my-5' id = 'about'>
 				<div className = 'container'>
-					<div className= "row align-items-center">
+					<div className= "row align-items-center" style={{marginRight:0}}>
 						<div className = "c col-md-6 col-12">
 							<div className = 'left-side text-md-start text-center mb-lg-0 mb-5'>
 								<h3 className = 'about-name'><span>M</span>icro<span>O</span>ne</h3>

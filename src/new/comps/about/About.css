@@ -15,5 +15,7 @@
 .about .container .row .c .left-side .about-text {
   font-size: 17px;
   letter-spacing: 1px; }
-
+.row *{
+  /* margin-right: 0px !important; */
+}
 /*# sourceMappingURL=About.css.map */

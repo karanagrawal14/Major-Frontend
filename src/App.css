@@ -111,6 +111,7 @@ address{
 
 .navbar-dark {
   background-color: #512DA8;
+  /* background-color: #05a081; */
 }
 .page-enter {
   opacity: 0.01;
@@ -173,8 +174,10 @@ input[type=file]{
 }
 .btn-new{
   background-color: #6C63FF;
+  /* background-color: #05a081; */
 }
 .bg-new{
+  /* background-color: #6C63FF; */
   background-color: #6C63FF;
 }
 button{
