@@ -66,7 +66,7 @@ function About(props) {
   // });
 
   return (
-    <div className="container">
+    <div className="container" id = 'about'>
       {/* <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
@@ -77,9 +77,10 @@ function About(props) {
                     <hr />
                 </div>                
             </div> */}
-      <div className="row row-content">
+      <div className="row row-new row-content">
         <div className="col-12 col-md-6">
-          <h2>Electronics and Instrumentation</h2>
+        <h3 className = 'brand-name mb-5' ><span>E</span>lectronics <span>&</span> <span>I</span>nstrumentation</h3>
+          {/* <h2>Electronics and Instrumentation</h2> */}
           <p>
             The Department of Electronics and Instrumentation Engineering was
             established in 1984.This Department came out as an offspring of
@@ -91,7 +92,7 @@ function About(props) {
             The faculty is well qualified to accept the new challenges in the
             Electronics and Instrumentation field.{" "}
           </p>
-          <p>
+          <p >
             {" "}
             The Department has been recognized as a centre to conduct short term
             Programme for teaching faculty in the PC based Electronics
@@ -101,7 +102,7 @@ function About(props) {
           </p>
         </div>
         <div className="col-12 col-md-5">
-          <Card>
+          <Card >
             <CardHeader className="bg-new text-white text-center">
               <b>Head of the Department</b>
             </CardHeader>
@@ -172,7 +173,7 @@ function About(props) {
               </Media>
             </Media> */}
           {/* </div> */}
-          <div className="col-5 mt-5 border">
+          <div className="col-5 mt-5 border card-about">
             <Media>
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/files/downloads/DKMishra.pdf"><Media 
@@ -194,7 +195,7 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
+          <div className="col-5 mt-5 border card-about">
             <Media>
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/files/downloads/DKMishra.pdf"><Media 
@@ -216,7 +217,7 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
+          <div className="col-5 mt-5 border card-about">
             <Media>
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/files/downloads/PPBansod.pdf"><Media 
@@ -238,7 +239,7 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
+          <div className="col-5 mt-5 border card-about">
             <Media>
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/files/downloads/DSAjnar.pdf"><Media 
@@ -261,7 +262,7 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
+          <div className="col-5 mt-5 border card-about">
             <Media>
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/files/downloads/RajeshKhatri.pdf"><Media 
@@ -284,8 +285,8 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
-            <Media>
+          <div className="col-5 mt-5 border card-about">
+            <Media >
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/files/downloads/RCGurjar.pdf"><Media 
                   object
@@ -306,7 +307,7 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
+          <div className="col-5 mt-5 border card-about">
             <Media>
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/files/downloads/GGS.pdf"><Media 
@@ -329,8 +330,8 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
-            <Media>
+          <div className="col-5 mt-5 border card-about">
+            <Media >
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/files/downloads/NehaPande.pdf"><Media 
                   object
@@ -352,7 +353,7 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
+          <div className="col-5 mt-5 border card-about">
             <Media>
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/files/anuj.pdf"><Media 
@@ -375,8 +376,8 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
-            <Media>
+          <div className="col-5 mt-5 border card-about">
+            <Media >
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/files/faculty_Data_Tarni_Joshi_EI.docx"><Media 
                   object
@@ -398,7 +399,7 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
+          <div className="col-5 mt-5 border card-about">
             <Media>
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/index.php/eie-faculty-members/970-ayushi-choukikar"><Media 
@@ -421,7 +422,7 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
+          <div className="col-5 mt-5 border card-about">
             <Media>
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/index.php/eie-faculty-members/973-ms-deepali-choudhary"><Media 
@@ -444,8 +445,8 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
-            <Media>
+          <div className="col-5 mt-5 border card-about">
+            <Media >
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/index.php/eie-faculty-members/971-ms-kirti-bhargava"><Media 
                   object
@@ -467,7 +468,7 @@ function About(props) {
               </Media>
             </Media>
           </div>
-          <div className="col-5 mt-5 border">
+          <div className="col-5 mt-5 border card-about">
             <Media>
               <Media left href="#">
                 <a href="https://www.sgsits.ac.in/index.php/eie-faculty-members/972-ms-niharika-gour"><Media 

@@ -63,16 +63,16 @@ function App() {
 
                 <div className = '_body'>
                     <About />
-                    <Subscription />
-                    <Products />
-                    <Blogs />
-                    <Faq />
+                    {/* <Subscription /> */}
+                    {/* <Products /> */}
+                    {/* <Blogs /> */}
+                    {/* <Faq /> */}
                     <Contact />
                 </div>
 
-                <div className = '_footer'>
+                {/* <div className = '_footer'>
                     <Footer />
-                </div>
+                </div> */}
             </div>
     )
   }
@@ -81,8 +81,8 @@ function App() {
     <BrowserRouter>
     {/* <Sidebar/> */}
       <Switch>
-        <Route exact path='/h' component={HeaderPage}/>
-        <Route exact path='/' component={LandingPage}/>
+        <Route exact path='/' component={HeaderPage}/>
+        <Route exact path='/getStarted' component={LandingPage}/>
        <Route exact path="/reset-password/*" component={ResetPassword} />
       <Route exact path="/home" render={()=><><Home/> <Sidebar/></>}/>
       <Route path="/notes" render={()=><><Notes /><Sidebar /></>}exact/>

@@ -83,8 +83,8 @@ const LandingPage = () => {
           paddingLeft: "3rem",
         }}
       >
-        {showForm ? (
-          isLogin ? (
+        {/* {showForm ? ( */}
+          {isLogin ? (
             <Login
               userType={userType}
               setUserType={setUserType}
@@ -103,10 +103,11 @@ const LandingPage = () => {
               goBack={() => setShowForm(false)}
               setLogin={() => setIsLogin(true)}
             />
-          )
-        ) : (
-          <GetStarted goNext={() => setShowForm(true)} />
-        )}
+          )}
+        {/* ) : (
+          // <GetStarted goNext={() => setShowForm(true)} />
+          <div></div>
+        )} */}
       </div>
     </div>
   );

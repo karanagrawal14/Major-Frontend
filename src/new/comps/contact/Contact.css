@@ -5,13 +5,18 @@
 
 .contact .title h2 {
   font-weight: bolder;
-  color: #05a081; }
+  color:  #7880d1;; }
 .contact .row .c {
   font-weight: bolder;
   font-size: 15px; }
   .contact .row .c .left-side div p {
-    border-left: 3px solid #05a081; }
+    border-left: 3px solid #7880d1; }
     .contact .row .c .left-side div p i {
-      color: #05a081; }
-
+      color: #7880d1; }
+.row-new *{
+  margin-right: 0px !important;
+}
+.img-fluid{
+  /* fill: red !important; */
+}
 /*# sourceMappingURL=Contact.css.map */

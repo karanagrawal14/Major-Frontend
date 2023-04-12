@@ -2,7 +2,11 @@
 .active {
   padding: 5px;
   /* background-color: #05a081;  */
-  background-color: #6C63FF; }
+  /* background-color: #7880d1 !important; */
+ }
+ .cg{
+  background-color: #7880d1 !important;
+ }
 
 .navbar .container .collapse .navbar-nav .nav-item .nav-link {
   color: black;
@@ -28,5 +32,29 @@
   transition: 0.3s; }
   .navbar .container .collapse .navbar-nav .icon a:hover {
     color: white; }
-
+.nav-new{
+  color: black;
+    font-weight: bolder;
+    font-size: 15px;
+    transition:0.3s;
+}
+.nav-new::before{
+  position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: white;
+    border-radius: 30px;
+    transition: all ease 0.2s;
+    text-decoration: underline !important;
+}
+nav-new:hover::before{
+  color: white;
+  text-decoration: underline !important;
+}
+.link{
+  /* text-decoration: underline !important; */
+}
 /*# sourceMappingURL=Navbar.css.map */

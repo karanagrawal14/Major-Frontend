@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react'
 import './Contact.css'
-import contact_pic from '../../images/pics/contact.svg'
+import contact_pic from '../../images/pics/contactus.jpg'
 import {contact} from '../helpers/Data'
 
 class Contact extends Component
@@ -31,7 +31,7 @@ class Contact extends Component
 						<h2 className = 'text-capitalize text-center mb-5 position-relative p-3'>contact us</h2>
 					</div>
 
-					<div className = 'row align-items-center'>
+					<div className = 'row row-new align-items-center'>
 						<div className = 'c col-md-7 col-12'>
 							<div className = 'left-side mb-lg-0 mb-5'>
 								<div className = 'info'>
@@ -41,7 +41,7 @@ class Contact extends Component
 						</div>
 						<div className = 'c col-md-5 col-12'>
 							<div className = 'right-side text-lg-end text-center'>
-								<img className = 'img-fluid w-75 shadow-lg' src = {contact_pic} alt = 'contact_pic' />
+								<img className = 'img-fluid w-75' src = {contact_pic} alt = 'contact_pic' />
 							</div>
 						</div>
 					</div>

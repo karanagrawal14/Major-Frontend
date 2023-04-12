@@ -192,8 +192,8 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
           backgroundColor: "white",
           borderRadius: "10px",
           boxShadow: "0px 0px 5px 5px rgba(0, 0, 0, .2)",
-          height:"700px",
-          marginTop:"60px",
+          height:"630px",
+          marginTop:"7px",
           marginRight:"30px"
         }}
         >

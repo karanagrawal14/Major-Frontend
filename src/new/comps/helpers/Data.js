@@ -10,21 +10,21 @@ let navbar_items = [
 		icon: 'fas fa-address-card',
 		link: 'about'
 	},
-	{
-		name: 'Products',
-		icon: 'fas fa-tv',
-		link: 'products'
-	},
-	{
-		name: 'Blogs',
-		icon: 'fas fa-blog',
-		link: 'blogs'
-	},
-	{
-		name: 'FAQ',
-		icon: 'fas fa-question-circle',
-		link: 'faq'
-	},
+	// {
+	// 	name: 'Products',
+	// 	icon: 'fas fa-tv',
+	// 	link: 'products'
+	// },
+	// {
+	// 	name: 'Blogs',
+	// 	icon: 'fas fa-blog',
+	// 	link: 'blogs'
+	// },
+	// {
+	// 	name: 'FAQ',
+	// 	icon: 'fas fa-question-circle',
+	// 	link: 'faq'
+	// },
 	{
 		name: 'Contact',
 		icon: 'fas fa-phone-alt',
@@ -168,17 +168,17 @@ let faq_items = [
 let contact = [
 	{
 		type: 'e-mail',
-		info: 'support@microone.com',
+		info: 'director[at]sgsits.ac.in',
 		icon: 'fas fa-envelope'
 	},
 	{
 		type: 'phone-number',
-		info: '608-357-2697',
+		info: ' +91 - 731 - 2582100',
 		icon: 'fas fa-phone-alt'
 	},
 	{
 		type: 'address-location',
-		info: '255 Alphatonia Road, Lambells Lagoon NT 0822, Australia',
+		info: '23 Sir M. Visvesvaraya Marg, Indore, Madhya Pradesh 452003',
 		icon: 'fas fa-map-marker-alt'
 	}
 ]

@@ -55,8 +55,8 @@
 	flex-direction: row;
 	width: calc(100% - 0px);
 	justify-content: flex-start;
-	/* margin-right: 15px;
-	margin-left: 15px; */
+	margin-right: 15px;
+	/* margin-left: 15px;  */
 	
 	border-left: 7px solid transparent;
 	padding-left: 30px;
