@@ -201,6 +201,14 @@ class Application extends React.Component {
                         >
                           Issue
                         </Button>
+                        <Button
+                          className=" btn btn-new mt-4 btn-right1"
+                          href={`http://localhost:8000/download/${id}`}
+                          target="_blank"
+                          // href = "https://www.google.com/"
+                        >
+                          PDF
+                        </Button>
                       </CardBody>
                     </Card>
                   </div>

@@ -180,6 +180,16 @@ input[type=file]{
   /* background-color: #6C63FF; */
   background-color: #7880d1;
 }
+.btn-right{
+  position: absolute;
+  right: 20px;
+}
+.btn-right1{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
 button{
   cursor: pointer !important;
 }

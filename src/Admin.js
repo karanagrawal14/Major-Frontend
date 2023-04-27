@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+
+
 import axios from "axios";
 import Modal from "react-modal";
 import "./Navbar.css";
@@ -37,10 +39,15 @@ import {
 } from "reactstrap";
 import { customStyles3 } from "./components/CustomModalStyles";
 const baseURL = "http://localhost:8000/";
+
 class Admin extends React.Component {
+  
   constructor(props) {
+   
     super(props);
+    
     this.state = {
+      
       books: [],
       searchfield: "",
       open: false,
@@ -49,8 +56,12 @@ class Admin extends React.Component {
       author: "",
       copies: 1,
       top_issued: [],
-      image:""
+      image:"",
+      file:"",
+      id:"",
+      fileName:""
     };
+    
     this.logout = this.logout.bind(this);
     this.addBook = this.addBook.bind(this);
     this.nameChange = this.nameChange.bind(this);
@@ -60,6 +71,7 @@ class Admin extends React.Component {
     this.authorChange = this.authorChange.bind(this);
     this.toggleModel = this.toggleModel.bind(this);
     this.addCopy = this.addCopy.bind(this);
+    this.download = this.download.bind(this);
     this.getArticles = this.getArticles.bind(this);
   }
   toggleModel() {
@@ -72,8 +84,12 @@ class Admin extends React.Component {
     this.setState({ copies: e.target.value });
   }
   fileChange(e) {
-    alert("File Added Successfully");
-    this.setState({image:e.target.value})
+    // alert("File Added Successfully");
+    // alert(e.target.files[0]);
+   this.setState({file:e.target.files[0]})
+   this.setState({fileName:e.target.files[0].name})
+    // this.setState({file:e.target.files[0]})
+
     // this.toggleModel();
   }
   yearChange(e) {
@@ -87,27 +103,71 @@ class Admin extends React.Component {
       this.getArticles();
     });
   }
+  download(id){
+    fetch(`http://localhost:8000/download/${id}`).then((error, res) => {
+      this.getArticles();
+    });
+  }
   addBook() {
     this.toggleModel();
-    alert(this.state);
-    var data = {
+   
+    // alert(this.state);
+    var materialData = {
       name: this.state.name,
       author: this.state.author,
       pub_year: this.state.pub_year,
       copies: this.state.copies,
 
       times_issued: 0,
+      // file:this.state.file
+      // file:this.state.file
     };
     if (
-      data.name != "" &&
-      data.author != "" &&
-      data.pub_year != "" &&
-      data.copies != ""
+      materialData.name != "" &&
+      materialData.author != "" &&
+      materialData.pub_year != "" &&
+      materialData.copies != ""
     ) {
-      axios.post("http://localhost:8000/addbook", data).then((error, res) => {
-        this.getArticles();
+      axios.post("http://localhost:8000/addbook", materialData).then((res) => {
+       
+        // this.getArticles();
+        
+       
+        // alert(res.data.data);
+        // console.log(res.data.data._id)
+        // formData.file=this.state.file;
+        // formData.save();
+        // .then((res)=>{
+          var formData = new FormData();
+          // alert(this.state.file);
+          formData.append("file",this.state.file)
+          axios.post(
+            `http://localhost:8000/addBook/attachment/${res.data._id}`,
+            formData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data;",
+              },
+            }
+          )
+          .then((res1) => {
+          // alert("This is called");
+          })
+          .catch((err) => {
+            
+          //  alert("What's the problem man");
+          });
+        // })
+       
+      })
+      .catch((err) => {
+        console.log(err);
+        // toast.error("Error creating new material");
+        // setIsOpen(false);
       });
+      
     }
+    
   }
   logout() {
     localStorage.removeItem("email");
@@ -125,7 +185,8 @@ class Admin extends React.Component {
           pub_year: `${article.pub_year}`,
           times_issued: `${article.times_issued}`,
           copies: `${article.copies}`,
-          image:`${article.image}`
+          image:`${article.image}`,
+          
         }))
       )
       .then((articles) => {
@@ -168,6 +229,10 @@ class Admin extends React.Component {
     const em = localStorage.getItem("email");
     return (
       <div >
+        //new 
+        
+   
+        //end
         {this.state.open ? (
           <Modal
             // style={{
@@ -441,7 +506,11 @@ class Admin extends React.Component {
               >
                 Upload file
               </p>
+              
             </button>
+            <div className="">
+                {this.state.fileName}
+            </div>
             <div
             style={{
               position:"absolute",
@@ -532,6 +601,14 @@ class Admin extends React.Component {
                           onClick={() => this.addCopy(id)}
                         >
                           Add a copy
+                        </Button>
+                        <Button
+                          className=" btn btn-new mt-4 btn-right"
+                          href={`http://localhost:8000/download/${id}`}
+                          target="_blank"
+                          // href = "https://www.google.com/"
+                        >
+                          PDF
                         </Button>
                       </CardBody>
                     </Card>
