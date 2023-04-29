@@ -21,7 +21,8 @@ import Application  from './main';
 import Admin from "./Admin";
 import Extra from "./extra";
 import LandPage from "./components/newSp";
-
+// import Timer from "./components/Timer";
+import QuizTimer from "./components/Timer";
 //new document
 import Header from "./new/comps/header/Header";
 import Sb from "./new/comps/sb/Sb";
@@ -76,6 +77,10 @@ function App() {
             </div>
     )
   }
+  const handleTimeUp = () => {
+    // handle time up event
+  };
+
   return(
     <div>
     <BrowserRouter>
@@ -99,7 +104,7 @@ function App() {
       <Route path="/createQuiz/*" render={()=><><QuizQuestion /><Sidebar /></>}exact/>
       {/* <Route path="/extra" render={Extra}/> */}
       <Route path="/lp" render={LandPage}/>
-
+      <Route path="/timer" render={()=><QuizTimer duration={7200} onTimeUp={handleTimeUp}/>}/>
       </Switch> 
     </BrowserRouter>
   </div>

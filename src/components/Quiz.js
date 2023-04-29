@@ -9,6 +9,7 @@ import autosize from "autosize";
 import Modal from "react-modal";
 import { Line, Bar } from "react-chartjs-2";
 import jsPDF from "jspdf";
+import QuizTimer from "./Timer";
 import {
   Grid,
   Edit,
@@ -33,6 +34,7 @@ import "react-toggle/style.css";
 import "jspdf-autotable";
 import "./css/Course.css";
 import "./css/CreateCourse.css";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 let userType = JSON.parse(localStorage.getItem("userType"));
 
@@ -103,6 +105,7 @@ const Quiz = ({ history }) => {
   const [isActive, setIsActive] = React.useState(
     quizInfo ? quizInfo.is_active : false
   );
+  const [dueDate, setDueDate] = React.useState(null);
   const [hasSubmitted, setHasSubmitted] = React.useState(false);
   const [quizResults, setQuizResults] = React.useState([]);
 
@@ -867,6 +870,7 @@ const Quiz = ({ history }) => {
   };
 
   const submitQuiz = () => {
+    localStorage.removeItem('timerValue');
     let loc = window.location.href.split("/");
     let score = calculateScore(questions, quizAnswers);
     let textualMarks = [];
@@ -961,6 +965,11 @@ const Quiz = ({ history }) => {
         toast.success("Quiz name updated");
       }
     });
+  };
+  const handleTimeUp = () => {
+    alert("Your Time is Up");
+    submitQuiz();
+    
   };
 
   React.useEffect(() => {
@@ -1604,6 +1613,7 @@ const Quiz = ({ history }) => {
                 alignItems: "center",
               }}
             >
+             
               <button className="btn btn-new" style={{ paddingLeft: 15 }} onClick={submitQuiz}>
                 <p
                   style={{
@@ -1619,6 +1629,8 @@ const Quiz = ({ history }) => {
                   Submit
                 </p>
               </button>
+              <QuizTimer  duration={quizInfo.quiz_time} onTimeUp={handleTimeUp}/>
+              {/* <div>{quizInfo.quiz_time}</div> */}
             </div>
           ) : null}
         </React.Fragment>

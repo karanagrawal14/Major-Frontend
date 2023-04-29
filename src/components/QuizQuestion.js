@@ -4,10 +4,11 @@ import Toggle from "react-toggle";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
 import { EmptyStateSmall } from "./EmptyState";
-import { Trash, List, Type, X } from "react-feather";
+import { Trash, List, Type, X,ArrowLeft } from "react-feather";
 import "./css/Course.css";
 import "./css/CreateCourse.css";
-
+import DayPickerInput from "react-day-picker/DayPickerInput";
+import QuizTimer from "./Timer";
 let localdata = JSON.parse(localStorage.getItem("userDetails"));
 let user = localdata
   ? localdata
@@ -344,6 +345,7 @@ const QuizQuestion = ({ history }) => {
   const [questionID, setQID] = React.useState(0);
 
   const [quizName, setQuizName] = React.useState("");
+  const [quizTime, setQuizTime] = React.useState("");
   const [questionTitle, setQuestionTitle] = React.useState("");
   const [option1, setO1] = React.useState("");
   const [option2, setO2] = React.useState("");
@@ -465,7 +467,8 @@ const QuizQuestion = ({ history }) => {
       teacher_id: user._id,
       course_id: loc[loc.length - 1],
       quiz_title: quizName,
-    };
+      quiz_time:quizTime*60
+        };
 
     let _id = null;
     var QID = 1;
@@ -1238,7 +1241,37 @@ const QuizQuestion = ({ history }) => {
           onChange={(t) => setQuizName(t.target.value)}
           className="changeColor changeColorBG"
         ></input>
-
+        {/* new */}
+        <p
+          style={{
+            fontFamily: "Poppins",
+            fontSize: 17,
+            color: "#ababab",
+            fontWeight: 500,
+            margin: 0,
+            padding: 0,
+            textAlign: "left",
+            marginTop: 20,
+            marginBottom: 0,
+          }}
+          className="sub"
+        >
+          Enter the time of Quiz
+        </p>
+        <input
+          type="number"
+          style={{ height: 40 }}
+          value={quizTime}
+          onChange={(t) => setQuizTime(t.target.value)}
+          className="changeColor changeColorBG"
+        ></input>
+        {/* end */}
+         {/* <DayPickerInput
+                    className="change"
+                    // onDayChange={handleDueDateChange}
+                    style={{ fontFamily: "Poppins", fontSize: 14 }}
+                    navbarElement={<ArrowLeft size={15} />}
+                  /> */}
         <ul style={{ margin: 0, padding: 0, marginLeft: 20 }}>
           <li>
             <p

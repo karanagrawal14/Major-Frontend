@@ -20,6 +20,7 @@
     "jspdf-autotable": "^3.5.28",
     "md5": "^2.3.0",
     "mdb-react-ui-kit": "^5.1.0",
+    "moment": "^2.29.4",
     "pdfjs-dist": "^3.5.141",
     "randomstring": "^1.2.3",
     "react": "^17.0.2",
