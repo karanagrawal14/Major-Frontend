@@ -1,15 +1,11 @@
 import React from "react";
 import {
-  Breadcrumb,
-  BreadcrumbItem,
   Card,
   CardBody,
   CardHeader,
   Media,
   CardImg,
-  CardTitle,
 } from "reactstrap";
-import { Link } from "react-router-dom";
 import hod from "./assets/hodsir.jpg";
 // import dk from './assets/dkmishra.jpg'
 import ppbansod from './assets/ppbansod.jpg';
