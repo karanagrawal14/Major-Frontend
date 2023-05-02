@@ -10,30 +10,13 @@ import "./components/css/Course.css";
 // import { Book, Copy, X, Plus } from "react-feather";
 import {
   FileText,
-  Edit3,
-  Book,
-  Download,
-  Copy,
   Plus,
-  X,
-  UserX,
-  ArrowLeft,
-  HelpCircle,
-  Trash2,
-  LogOut,
-  Send,
 } from "react-feather";
 import {
   Card,
-  CardImg,
-  CardImgOverlay,
   CardText,
   CardBody,
   CardTitle,
-  Breadcrumb,
-  BreadcrumbItem,
-  Col,
-  Row,
   CardSubtitle,
   Button,
 } from "reactstrap";
@@ -123,10 +106,10 @@ class Admin extends React.Component {
       // file:this.state.file
     };
     if (
-      materialData.name != "" &&
-      materialData.author != "" &&
-      materialData.pub_year != "" &&
-      materialData.copies != ""
+      materialData.name !=="" &&
+      materialData.author !=="" &&
+      materialData.pub_year !=="" &&
+      materialData.copies !==""
     ) {
       axios.post("http://localhost:8000/addbook", materialData).then((res) => {
        
@@ -226,53 +209,15 @@ class Admin extends React.Component {
     this.getArticles();
   }
   render() {
-    const em = localStorage.getItem("email");
     return (
       <div >
-        //new 
-        
-   
-        //end
         {this.state.open ? (
           <Modal
-            // style={{
-            //   overlay: {
-            //     position: "fixed",
-            //     top: 0,
-            //     left: 0,
-            //     right: 0,
-            //     bottom: 0,
-            //     backgroundColor: "rgba(255, 255, 255, 0.75)",
-            //   },
-            //   content: {
-            //     position: "absolute",
-            //     top: "40px",
-            //     marginRight: "auto",
-            //     marginLeft: "auto",
-            //     bottom: "40px",
-            //     border: "1px solid #ccc",
-            //     background: "#fff",
-            //     overflow: "auto",
-            //     WebkitOverflowScrolling: "touch",
-            //     borderRadius: "4px",
-            //     outline: "none",
-            //     padding: "20px",
-            //     width: "30vw",
-            //     height: "auto",
-            //   },
-            // }}
-
-            //  isOpen={modalIsOpen}
-          // onAfterOpen={afterOpenModal}
-          // onRequestClose={closeModal}
           style={customStyles3}
-          
-          // contentLabel="Modal"
           closeTimeoutMS={200}
           className="background"
             isOpen={this.state.open}
             onRequestClose={() => this.toggleModel()}
-            // https://source.unsplash.com/1600x900/?book
             contentLabel="My dialog"
           >
             <div
@@ -631,7 +576,6 @@ class Admin extends React.Component {
        <Button style={{
             display: "flex",
             flexDirection: "row",
-            alignItems:"flex-end",
             width: "auto",
             height: "50px",
             alignItems: "center",
