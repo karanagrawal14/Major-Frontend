@@ -9,12 +9,13 @@ header {
     color: white; }
     header .content .brand-name {
       font-family: 'Rampart One', cursive;
-      font-size: 40px;
+      font-size: 70px;
       letter-spacing: 2px; }
       header .content .brand-name span {
         color: #05a081; }
     header .content .brand-description {
       font-size: 40px;
+      font-weight:bold ;
       color: #b7cad0 !important;
      }
     header .content .empty-line {
@@ -24,5 +25,9 @@ header {
       border-radius: 30px; }
 .btn-new2{
   background-color: #7880d1;
+}
+.landing-desc{
+  font-style: italic;
+  font-size: 25px !important;
 }
 /*# sourceMappingURL=Header.css.map */

@@ -11,7 +11,7 @@ import Notes from "./components/Notes";
 import Search from "./components/Search";
 import Course from "./components/Course";
 import Quiz from "./components/Quiz";
-import Attendance from "./components/Attendance";
+// import Attendance from "./components/Attendance";
 import AssignmentDetails from "./components/AssignmentDetails";
 import AssessmentReport from "./components/AssessmentReport";
 import QuizQuestion from "./components/QuizQuestion";
@@ -99,7 +99,7 @@ function App() {
       <Route path="/assignment/*" render={()=><><AssignmentDetails /><Sidebar /></>}exact/>
       <Route path="/assessmentReport/*" render={()=><><AssessmentReport /><Sidebar /></>}exact/>
       <Route path="/quiz/*" render={()=><><Quiz /><Sidebar /></>}exact/>
-      <Route path="/attendance/*" render={()=><><Attendance/><Sidebar/></>} exact/>
+      {/* <Route path="/attendance/*" render={()=><><Attendance/><Sidebar/></>} exact/> */}
       <Route path="/books" render={ApplicationPage}/>
       <Route path="/createQuiz/*" render={()=><><QuizQuestion /><Sidebar /></>}exact/>
       {/* <Route path="/extra" render={Extra}/> */}

@@ -124,7 +124,9 @@ const Course = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [isAssignment, setIsAssignment] = React.useState(false);
   const [isQuiz, setIsQuiz] = React.useState(false);
+  const [isAttendance, setIsAttendance] = React.useState(false);
   const [dueDate, setDueDate] = useState(null);
+  const [attendenceDate, setAttendenceDate] = useState(null);
   const [maxMarks, setMaxMarks] = useState(null);
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
@@ -242,7 +244,19 @@ const Course = () => {
       setDueDate(null);
     }
   };
-
+  const handleAttendenceDate = (day)=>{
+    setAttendenceDate(day);
+    var q = new Date();
+    var m = q.getMonth();
+    var d = q.getDate();
+    var y = q.getFullYear();
+    var today = new Date(y, m, d);
+    let ourDate = new Date(day);
+    if (ourDate < today) {
+      toast.error("Invalid date");
+      setAttendenceDate(null);
+    }
+  }
   const generatePDF = (tickets) => {
     const doc = new jsPDF();
     const tableColumn = ["Name", "Year", "Department", "Email"];
@@ -268,7 +282,6 @@ const Course = () => {
     doc.text("Course Students Report", 15, 20);
     doc.save(`report.pdf`);
   };
-
   const postMaterial = () => {
     if (isAssignment) {
       if (
@@ -283,7 +296,15 @@ const Course = () => {
         return;
       }
     } else if (isQuiz) {
-    } else {
+    } 
+    else if(isAttendance){
+      let attendenceData = {
+        course_id: courseID,
+        date: attendenceDate,
+        is_assignment: isAttendance,
+      };
+      
+    }else {
       if (!(validateTitle() && validateDescription() && attachment)) {
         toast.error("Form is invalid");
         return;
@@ -1178,7 +1199,7 @@ const Course = () => {
               <label
                 class={"checkbox-container sub"}
                 style={{
-                  borderColor: !isAssignment && !isQuiz ? "#6C63FF" : "",
+                  borderColor: !isAssignment && !isQuiz && !isAttendance ? "#6C63FF" : "",
                 }}
               >
                 <Book size={22} style={{ marginRight: 15 }} className="sub" />
@@ -1188,8 +1209,9 @@ const Course = () => {
                   onClick={() => {
                     setIsAssignment(false);
                     setIsQuiz(false);
+                    setIsAttendance(false);
                   }}
-                  checked={!isAssignment && !isQuiz}
+                  checked={!isAssignment && !isQuiz && !isAttendance}
                 />
                 <span class="checkmark" style={{ right: 0, left: 180 }}></span>
               </label>
@@ -1210,8 +1232,9 @@ const Course = () => {
                   onClick={() => {
                     setIsAssignment(true);
                     setIsQuiz(false);
+                    setIsAttendance(false);
                   }}
-                  checked={isAssignment && !isQuiz}
+                  checked={isAssignment && !isQuiz && !isAttendance}
                 />
                 <span class="checkmark" style={{ right: 0, left: 160 }}></span>
               </label>
@@ -1229,6 +1252,8 @@ const Course = () => {
                   type="checkbox"
                   onClick={() => {
                     setIsQuiz(!isQuiz);
+                    setIsAssignment(false);
+                    setIsAttendance(false);
                   }}
                   checked={isQuiz}
                 />
@@ -1236,9 +1261,30 @@ const Course = () => {
               </label>
             </div>
           </div>
-
+            <div>     
+               <label
+                class={"checkbox-container sub"}
+                style={{ borderColor: isAttendance ? "#6C63FF" : "" }}
+              >
+                <HelpCircle
+                  size={22}
+                  style={{ marginRight: 15 }}
+                  className="sub"
+                />
+                Attendance
+                <input
+                  type="checkbox"
+                  onClick={() => {
+                    setIsAttendance(!isAttendance);
+                    setIsAssignment(false);
+                    setIsQuiz(false);
+                  }}
+                  checked={isAttendance}
+                />
+                <span class="checkmark" style={{ right: 0, left: 100 }}></span>
+              </label></div>
           <div style={{ display: "flex", flexDirection: "row" }}>
-            {!isQuiz ? (
+            {!isQuiz && !isAttendance ? (
               <div
                 style={{
                   display: "flex",
@@ -1272,7 +1318,7 @@ const Course = () => {
               </div>
             ) : null}
 
-            {isAssignment && !isQuiz ? (
+            {isAssignment && !isQuiz && !isAttendance  ? (
               <React.Fragment>
                 <div
                   style={{
@@ -1345,7 +1391,7 @@ const Course = () => {
             ) : null}
           </div>
 
-          {!isQuiz ? (
+          {!isQuiz &&  !isAttendance  ? (
             <React.Fragment>
               <p
                 className="changeColor"
@@ -1384,7 +1430,7 @@ const Course = () => {
               textAlign: "left",
               marginTop: 35,
               marginBottom: 0,
-              display: isQuiz ? "none" : "block",
+              display: isQuiz|| isAttendance ? "none" : "block",
             }}
           >
             Add attachment{" "}
@@ -1393,7 +1439,7 @@ const Course = () => {
             </span>
           </p>
 
-          {isQuiz ? null : attachment ? null : (
+          {(isQuiz||isAttendance) ? null : attachment ? null : (
             <button
               className="changeColorBG height"
               style={{
@@ -1433,7 +1479,7 @@ const Course = () => {
             </button>
           )}
 
-          {attachment && !isQuiz ? (
+          {attachment && !(isQuiz || isAttendance) ? (
             <div
               className="uploaded-file"
               style={{ width: "40%", marginTop: 10 }}
@@ -1448,7 +1494,7 @@ const Course = () => {
             </div>
           ) : null}
 
-          {isQuiz ? (
+          {isQuiz  && !isAttendance ? (
             <ul style={{ margin: 0, padding: 0, marginLeft: 0, marginTop: 30 }}>
               <li>
                 <p
@@ -1526,7 +1572,46 @@ const Course = () => {
                 </p>
               </li>
             </ul>
-          ) : null}
+          ) : isAttendance?
+        <div>
+         what should i implement here
+         <React.Fragment>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "25%",
+                    marginRight: 25,
+                  }}
+                >
+                  <p
+                    className="changeColor"
+                    style={{
+                      fontFamily: "Poppins",
+                      fontSize: 16,
+                      color: "#232323",
+                      fontWeight: 600,
+                      margin: 0,
+                      padding: 0,
+                      textAlign: "left",
+                      marginTop: 20,
+                      marginBottom: 0,
+                    }}
+                  >
+                    Date of Attendance
+                  </p>
+                  <DayPickerInput
+                    className="change"
+                    onDayChange={handleAttendenceDate}
+                    style={{ fontFamily: "Poppins", fontSize: 14 }}
+                    navbarElement={<ArrowLeft size={15} />}
+                  />
+                </div>
+
+                
+              </React.Fragment>
+        </div>:null
+        }
 
           <div
             style={{

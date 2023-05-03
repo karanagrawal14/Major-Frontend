@@ -34,7 +34,6 @@ import "react-toggle/style.css";
 import "jspdf-autotable";
 import "./css/Course.css";
 import "./css/CreateCourse.css";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 let userType = JSON.parse(localStorage.getItem("userType"));
 
@@ -156,8 +155,9 @@ const Quiz = ({ history }) => {
   }, []);
 
   React.useEffect(() => {
-    let quizID = quizInfo ? quizInfo._id : null;
-    Axios.get(`http://localhost:8000/api/questions/${quizID}`).then((res) => {
+    let loc = window.location.href.split("/");
+    let quizid = loc[loc.length - 1];
+    Axios.get(`http://localhost:8000/api/questions/${quizid}`).then((res) => {
       if (res.data.success) {
         let question = res.data.data;
         setQuestions(question);
