@@ -16,12 +16,14 @@ const Post = ({
   info,
   assID,
   quizID,
+  attID,
   noOfQues,
   totalMarks,
   isActive,
   courseId,
   studentId,
   forceUpdate,
+
 }) => {
   const icon =
     postType === "assignment" ? (
@@ -38,6 +40,7 @@ const Post = ({
   if (!info.length) info = "";
   const isAssignment = postType === "assignment";
   const isQuiz = postType === "quiz";
+  const isAttendence = postType == "attendence"
   if (isQuiz) type = "QUIZ";
 
   const deleteAssignment = () => {
@@ -101,7 +104,7 @@ const Post = ({
                   {noOfQues} questions, {totalMarks} marks
                 </p>
               </div>
-            ) : null}
+            ) :null}
           </div>
         </div>
         <div className="post-options">
@@ -166,7 +169,40 @@ const Post = ({
                 {isActive ? "active" : "not active"}
               </p>
             </React.Fragment>
-          ) : (
+          ) 
+          : isAttendence ? (
+            <React.Fragment>
+            <Link to={`/attendence/${attID}`}>
+              <ChevronRight
+                size={30}
+                color="#6C63FF"
+                style={{ marginRight: -5, paddingRight: 0 }}
+              />
+            </Link>
+            <p
+              style={{
+                fontSize: 14,
+                color: isActive ? "#6C63FF" : "#7E7E7E",
+                fontFamily: "Poppins",
+                marginRight: isActive ? 15 : 0,
+                fontWeight: 500,
+                verticalAlign: "bottom",
+                marginBottom: 0,
+                marginLeft: 10,
+                backgroundColor: isActive ? "#6C63FF2a" : "",
+                textAlign: "center",
+                padding: "5px 15px",
+                letterSpacing: isActive ? 0.4 : 0.6,
+                borderRadius: 20,
+                marginTop: 5,
+              }}
+              className="changeColorBGnotimp"
+            >
+              {isActive ? "active" : "not active"}
+            </p>
+          </React.Fragment>
+          ):
+          (
             <React.Fragment>
               {userType === "teacher" ? (
                 <div className="settings-icon" style={{ padding: 0 }}>

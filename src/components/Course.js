@@ -135,6 +135,7 @@ const Course = () => {
   const [courseTeacher, setCourseTeacher] = useState({});
   const [courseStudents, setCourseStudents] = useState([]);
   const [quizzes, setQuizzes] = useState([]);
+  const [attendences, setAttendences] = useState([]);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = React.useState([]);
   const [courseNameModalIsOpen, setCourseNameModal] = useState(false);
@@ -168,6 +169,16 @@ const Course = () => {
       .then((res) => {
         if (res.data.success) {
           setQuizzes(res.data.data.reverse());
+        }
+      })
+      .catch((e) => console.log(e));
+  }, [courseInfo, modalIsOpen]);
+
+  React.useEffect(() => {
+    Axios.get(`http://localhost:8000/api/attendence/course/${courseID}`)
+      .then((res) => {
+        if (res.data.success) {
+          setAttendences(res.data.data.reverse());
         }
       })
       .catch((e) => console.log(e));
@@ -301,8 +312,11 @@ const Course = () => {
       let attendenceData = {
         course_id: courseID,
         date: attendenceDate,
-        is_assignment: isAttendance,
+        is_attendance: isAttendance,
       };
+      Axios.post("http://localhost:8000/api/attendence", attendenceData).then((res)=>{
+        console.log(res);
+      })
       
     }else {
       if (!(validateTitle() && validateDescription() && attachment)) {
@@ -927,6 +941,27 @@ const Course = () => {
                 />
               )}
             </div>
+            <div style={Object.assign({}, styles.slide, styles.slide2)}>
+              {attendences.length ? (
+                attendences.map((item, index) => {
+                  return (
+                    <Post
+                      postType={"attendence"}
+                      title={item.date}
+                      info=""
+                      attID={item.attendenceId}
+                      isActive={item.is_active}
+                    />
+                  );
+                })
+              ) : (
+                <EmptyStateSmall
+                  title="No Attendence Scheduled"
+                  d1="Teacher has not posted any attendence in this course yet"
+                />
+              )}
+            </div>
+
 
             <div style={Object.assign({}, styles.slide, styles.slide3)}>
               {userType === "teacher" ? (
