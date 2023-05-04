@@ -40,7 +40,7 @@ const MyCourses = () => {
   const forceUpdate = React.useCallback(() => update((v) => v + 1), []);
 
   React.useEffect(() => {
-    Axios.get(`http://localhost:8000/api/${userType}/${_id}`, {
+    Axios.get(`https://major-backend.onrender.com/api/${userType}/${_id}`, {
       header: {
         "Content-Type": "application/json; charset=utf-8",
       },
@@ -55,7 +55,7 @@ const MyCourses = () => {
         console.log(error);
       });
 
-    Axios.get(`http://localhost:8000/api/fetchCourse/${userType}/${_id}`, {
+    Axios.get(`https://major-backend.onrender.com/api/fetchCourse/${userType}/${_id}`, {
       header: {
         "Content-Type": "application/json; charset=utf-8",
       },
@@ -72,7 +72,7 @@ const MyCourses = () => {
   const getTeachers = () => {
     let courseArray = [...courseTeachers];
     courses.map((course, index) => {
-      Axios.get(`http://localhost:8000/api/teacher/${course.teacher_id}`, {
+      Axios.get(`https://major-backend.onrender.com/api/teacher/${course.teacher_id}`, {
         header: {
           "Content-Type": "application/json; charset=utf-8",
         },
@@ -90,7 +90,7 @@ const MyCourses = () => {
   const getStudentCount = () => {
     let courseArray = [...studentCount];
     courses.map((course, index) => {
-      Axios.get(`http://localhost:8000/api/studentCount/${course._id}`, {
+      Axios.get(`https://major-backend.onrender.com/api/studentCount/${course._id}`, {
         header: {
           "Content-Type": "application/json; charset=utf-8",
         },

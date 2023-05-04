@@ -48,7 +48,7 @@ const Login = ({
       return Swal.fire("Error", "Form is invalid");
     }
 
-    Axios.post("http://localhost:8000/api/students/login", {
+    Axios.post("https://major-backend.onrender.com/api/students/login", {
       email: email,
       password: (password),
     })
@@ -78,7 +78,7 @@ const Login = ({
       return Swal.fire("Error", "Form is invalid");
     }
 
-    Axios.post("http://localhost:8000/api/getResetLink", {
+    Axios.post("https://major-backend.onrender.com/api/getResetLink", {
       email: email,
       user_type: isStudent ? "student" : "teacher",
     })
@@ -104,7 +104,7 @@ const Login = ({
       return Swal.fire("Error", "Form is invalid");
     }
 
-    Axios.post("http://localhost:8000/api/teachers/login", {
+    Axios.post("https://major-backend.onrender.com/api/teachers/login", {
       email: email,
       password:(password),
     })

@@ -21,7 +21,7 @@ import {
   Button,
 } from "reactstrap";
 import { customStyles3 } from "./components/CustomModalStyles";
-const baseURL = "http://localhost:8000/";
+const baseURL = "https://major-backend.onrender.com/";
 
 class Admin extends React.Component {
   
@@ -82,12 +82,12 @@ class Admin extends React.Component {
     this.setState({ author: e.target.value });
   }
   addCopy(id) {
-    fetch(`http://localhost:8000/addcopies/${id}`).then((error, res) => {
+    fetch(`https://major-backend.onrender.com/addcopies/${id}`).then((error, res) => {
       this.getArticles();
     });
   }
   download(id){
-    fetch(`http://localhost:8000/download/${id}`).then((error, res) => {
+    fetch(`https://major-backend.onrender.com/download/${id}`).then((error, res) => {
       this.getArticles();
     });
   }
@@ -111,7 +111,7 @@ class Admin extends React.Component {
       materialData.pub_year !=="" &&
       materialData.copies !==""
     ) {
-      axios.post("http://localhost:8000/addbook", materialData).then((res) => {
+      axios.post("https://major-backend.onrender.com/addbook", materialData).then((res) => {
        
         // this.getArticles();
         
@@ -125,7 +125,7 @@ class Admin extends React.Component {
           // alert(this.state.file);
           formData.append("file",this.state.file)
           axios.post(
-            `http://localhost:8000/addBook/attachment/${res.data._id}`,
+            `https://major-backend.onrender.com/addBook/attachment/${res.data._id}`,
             formData,
             {
               headers: {
@@ -158,7 +158,7 @@ class Admin extends React.Component {
     this.props.history.push("/signup");
   }
   getArticles() {
-    fetch("http://localhost:8000")
+    fetch("https://major-backend.onrender.com")
       .then((response) => response.json())
       .then((response) =>
         response.map((article) => ({
@@ -182,7 +182,7 @@ class Admin extends React.Component {
       });
   }
   getTopIssued() {
-    fetch("http://localhost:8000/topissued")
+    fetch("https://major-backend.onrender.com/topissued")
       .then((response) => response.json())
       .then((res) =>
         res.data.map((article) => ({
@@ -549,7 +549,7 @@ class Admin extends React.Component {
                         </Button>
                         <Button
                           className=" btn btn-new mt-4 btn-right"
-                          href={`http://localhost:8000/download/${id}`}
+                          href={`https://major-backend.onrender.com/download/${id}`}
                           target="_blank"
                           // href = "https://www.google.com/"
                         >

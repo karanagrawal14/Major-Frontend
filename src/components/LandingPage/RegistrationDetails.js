@@ -90,7 +90,7 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
       );
     }
     console.log(password)
-    Axios.post("http://localhost:8000/api/students", {
+    Axios.post("https://major-backend.onrender.com/api/students", {
       fName,
       lName,
       email,
@@ -100,7 +100,7 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
     })
       .then((res) => {
         if (res.status === 200 && res.data.success) {
-          Axios.post("http://localhost:8000/api/students/login", {
+          Axios.post("https://major-backend.onrender.com/api/students/login", {
             email: email,
             password: password,
           }).then((res) => {
@@ -144,7 +144,7 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
       );
     }
 
-    Axios.post("http://localhost:8000/api/teachers", {
+    Axios.post("https://major-backend.onrender.com/api/teachers", {
       fName,
       lName,
       email,
@@ -152,7 +152,7 @@ const RegistrationDetails = ({ goBack, setLogin, userType, setUserType }) => {
     })
       .then((res) => {
         if (res.status === 200 && res.data.success) {
-          Axios.post("http://localhost:8000/api/teachers/login", {
+          Axios.post("https://major-backend.onrender.com/api/teachers/login", {
             email: email,
             password: password,
           }).then((res) => {
