@@ -2,6 +2,8 @@ import React from "react";
 import Axios from "axios";
 import jsPDF from "jspdf";
 import { toast } from "react-toastify";
+import { EmptyStateSmall } from "./EmptyState"
+import { Download , PlayCircle, XCircle} from "react-feather";
 let userType = JSON.parse(localStorage.getItem("userType"));
 
 let localdata = JSON.parse(localStorage.getItem("userDetails"));
@@ -37,7 +39,7 @@ let user = localdata
         doc.addFont("Helvetica", "Helvetica", "");
         doc.setFontSize(22);
         doc.setFont("Helvetica", "bold");
-        doc.text("Quiz Assessment Report", 15, 20);
+        doc.text("Attendance Report", 15, 20);
       
         doc.setFontSize(16);
         doc.setFont("Helvetica", "");
@@ -54,7 +56,8 @@ let user = localdata
         );
         const [attendenceResults,setAttendenceResults] = React.useState([]);
         const [hasSubmitted, setHasSubmitted] = React.useState(false);
-
+        const forceUpdate = React.useCallback(() => setIgnore((v) => v + 1), []);
+        const [ignore, setIgnore] = React.useState(0);
         React.useEffect(() => {
             let loc = window.location.href.split("/");
             let attendenceId = loc[loc.length - 1];
@@ -97,7 +100,7 @@ let user = localdata
         const submitAttendence= () => {
           let loc = window.location.href.split("/");
           let responseObj = {
-            attendenceId: loc[loc.length - 1],
+            attendance_id: loc[loc.length - 1],
             student_id: user._id,
             student_name: user.fName.concat(" ").concat(user.lName),
           };
@@ -253,7 +256,7 @@ let user = localdata
               </React.Fragment>
             ) : (
               <React.Fragment>
-                <div
+                {/* <div
                   style={{
                     width: "100%",
                     marginTop: 20,
@@ -279,7 +282,7 @@ let user = localdata
                       d1="If you think this is a mistake, please contact your teacher"
                     />
                   )}
-                </div>
+                </div> */}
                 {isActive && !hasSubmitted ? (
                   <div
                     style={{

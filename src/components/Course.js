@@ -177,6 +177,7 @@ const Course = () => {
   React.useEffect(() => {
     Axios.get(`http://localhost:8000/api/attendence/course/${courseID}`)
       .then((res) => {
+        console.log(res.data.data)
         if (res.data.success) {
           setAttendences(res.data.data.reverse());
         }
@@ -223,11 +224,13 @@ const Course = () => {
 
   React.useEffect(() => {
     let loc = window.location.href.split("/");
-    Axios.get(`http://localhost:8000/api/messages/${loc[loc.length - 1]}`).then((res) => {
-      if (res.data.success) {
-        setMessages(res.data.data);
+    Axios.get(`http://localhost:8000/api/messages/${loc[loc.length - 1]}`).then(
+      (res) => {
+        if (res.data.success) {
+          setMessages(res.data.data);
+        }
       }
-    });
+    );
   }, []);
 
   const openCourseNameModal = () => setCourseNameModal(true);
@@ -255,7 +258,7 @@ const Course = () => {
       setDueDate(null);
     }
   };
-  const handleAttendenceDate = (day)=>{
+  const handleAttendenceDate = (day) => {
     setAttendenceDate(day);
     var q = new Date();
     var m = q.getMonth();
@@ -267,7 +270,7 @@ const Course = () => {
       toast.error("Invalid date");
       setAttendenceDate(null);
     }
-  }
+  };
   const generatePDF = (tickets) => {
     const doc = new jsPDF();
     const tableColumn = ["Name", "Year", "Department", "Email"];
@@ -307,18 +310,18 @@ const Course = () => {
         return;
       }
     } else if (isQuiz) {
-    } 
-    else if(isAttendance){
+    } else if (isAttendance) {
       let attendenceData = {
         course_id: courseID,
         date: attendenceDate,
-        teacher_id : courseInfo.teacher_id
+        teacher_id: courseInfo.teacher_id,
       };
-      Axios.post("http://localhost:8000/api/attendence", attendenceData).then((res)=>{
-        console.log(res);
-      })
-      
-    }else {
+      Axios.post("http://localhost:8000/api/attendence", attendenceData).then(
+        (res) => {
+          console.log(res);
+        }
+      );
+    } else {
       if (!(validateTitle() && validateDescription() && attachment)) {
         toast.error("Form is invalid");
         return;
@@ -339,7 +342,6 @@ const Course = () => {
         var formData = new FormData();
         formData.append("file", attachment);
         Axios.post(
-          
           `http://localhost:8000/api/assignment/attachment/${res.data.data._id}`,
           formData,
           {
@@ -350,7 +352,7 @@ const Course = () => {
         )
           .then((res1) => {
             if (isAssignment === true) {
-              console.log("Assignment is posted")
+              console.log("Assignment is posted");
               toast.success("New assignment successfully created");
             } else if (isAssignment === false) {
               toast.success("New study material successfully created");
@@ -359,7 +361,9 @@ const Course = () => {
           .catch((err) => {
             if (isAssignment === false) {
               toast.error("Attachment error");
-              Axios.delete(`http://localhost:8000/api/assignment/${res.data.data._id}`)
+              Axios.delete(
+                `http://localhost:8000/api/assignment/${res.data.data._id}`
+              )
                 .then(() => {
                   console.log("Assignment with invalid attachment deleted");
                 })
@@ -482,7 +486,9 @@ const Course = () => {
     Axios.post(`http://localhost:8000/api/message`, obj).then((res) => {
       if (res.data.success) {
       }
-      Axios.get(`https://localhost:8000/api/messages/${loc[loc.length - 1]}`).then((res) => {
+      Axios.get(
+        `https://localhost:8000/api/messages/${loc[loc.length - 1]}`
+      ).then((res) => {
         if (res.data.success) {
           setMessages(res.data.data);
         }
@@ -512,7 +518,6 @@ const Course = () => {
           }}
         >
           <input
-
             style={{
               width: "96%",
               marginRight: 5,
@@ -829,6 +834,7 @@ const Course = () => {
             <AntTab label={<div> Assignments </div>} />
             <AntTab label={<div> Study Material </div>} />
             <AntTab label={<div> Quiz </div>} />
+            <AntTab label={<div> Attendance </div>} />
             <AntTab label={<div> People </div>} />
           </AntTabs>
           <SwipeableViews index={index} onChangeIndex={handleChangeIndex}>
@@ -949,7 +955,7 @@ const Course = () => {
                       postType={"attendence"}
                       title={item.date}
                       info=""
-                      attID={item.attendenceId}
+                      attID={item._id}
                       isActive={item.is_active}
                     />
                   );
@@ -961,7 +967,6 @@ const Course = () => {
                 />
               )}
             </div>
-
 
             <div style={Object.assign({}, styles.slide, styles.slide3)}>
               {userType === "teacher" ? (
@@ -1234,7 +1239,8 @@ const Course = () => {
               <label
                 class={"checkbox-container sub"}
                 style={{
-                  borderColor: !isAssignment && !isQuiz && !isAttendance ? "#6C63FF" : "",
+                  borderColor:
+                    !isAssignment && !isQuiz && !isAttendance ? "#6C63FF" : "",
                 }}
               >
                 <Book size={22} style={{ marginRight: 15 }} className="sub" />
@@ -1294,12 +1300,10 @@ const Course = () => {
                 />
                 <span class="checkmark" style={{ right: 0, left: 100 }}></span>
               </label>
-            </div>
-          </div>
-            <div>     
-               <label
+              {/* new start */}
+              <label
                 class={"checkbox-container sub"}
-                style={{ borderColor: isAttendance ? "#6C63FF" : "" }}
+                style={{ borderColor: isQuiz ? "#6C63FF" : "" }}
               >
                 <HelpCircle
                   size={22}
@@ -1310,14 +1314,40 @@ const Course = () => {
                 <input
                   type="checkbox"
                   onClick={() => {
-                    setIsAttendance(!isAttendance);
+                    setIsQuiz(!isQuiz);
                     setIsAssignment(false);
-                    setIsQuiz(false);
+                    setIsAttendance(false);
                   }}
-                  checked={isAttendance}
+                  checked={isQuiz}
                 />
                 <span class="checkmark" style={{ right: 0, left: 100 }}></span>
-              </label></div>
+              </label>
+              {/* new end */}
+            </div>
+          </div>
+          <div>
+            <label
+              class={"checkbox-container sub"}
+              style={{ borderColor: isAttendance ? "#6C63FF" : "" }}
+            >
+              <HelpCircle
+                size={22}
+                style={{ marginRight: 15 }}
+                className="sub"
+              />
+              Attendance
+              <input
+                type="checkbox"
+                onClick={() => {
+                  setIsAttendance(!isAttendance);
+                  setIsAssignment(false);
+                  setIsQuiz(false);
+                }}
+                checked={isAttendance}
+              />
+              <span class="checkmark" style={{ right: 0, left: 100 }}></span>
+            </label>
+          </div>
           <div style={{ display: "flex", flexDirection: "row" }}>
             {!isQuiz && !isAttendance ? (
               <div
@@ -1353,7 +1383,7 @@ const Course = () => {
               </div>
             ) : null}
 
-            {isAssignment && !isQuiz && !isAttendance  ? (
+            {isAssignment && !isQuiz && !isAttendance ? (
               <React.Fragment>
                 <div
                   style={{
@@ -1426,7 +1456,7 @@ const Course = () => {
             ) : null}
           </div>
 
-          {!isQuiz &&  !isAttendance  ? (
+          {!isQuiz && !isAttendance ? (
             <React.Fragment>
               <p
                 className="changeColor"
@@ -1465,16 +1495,19 @@ const Course = () => {
               textAlign: "left",
               marginTop: 35,
               marginBottom: 0,
-              display: isQuiz|| isAttendance ? "none" : "block",
+              display: isQuiz || isAttendance ? "none" : "block",
             }}
           >
             Add attachment{" "}
-            <span className="changeColor" style={{ fontSize: 14, fontWeight: 400, color: "#232323" }}>
+            <span
+              className="changeColor"
+              style={{ fontSize: 14, fontWeight: 400, color: "#232323" }}
+            >
               (Supported Type : PDF, Max Size : 10 MB)
             </span>
           </p>
 
-          {(isQuiz||isAttendance) ? null : attachment ? null : (
+          {isQuiz || isAttendance ? null : attachment ? null : (
             <button
               className="changeColorBG height"
               style={{
@@ -1529,7 +1562,7 @@ const Course = () => {
             </div>
           ) : null}
 
-          {isQuiz  && !isAttendance ? (
+          {isQuiz && !isAttendance ? (
             <ul style={{ margin: 0, padding: 0, marginLeft: 0, marginTop: 30 }}>
               <li>
                 <p
@@ -1607,10 +1640,10 @@ const Course = () => {
                 </p>
               </li>
             </ul>
-          ) : isAttendance?
-        <div>
-         what should i implement here
-         <React.Fragment>
+          ) : isAttendance ? (
+            <div>
+              {/* what should i implement here */}
+              <React.Fragment>
                 <div
                   style={{
                     display: "flex",
@@ -1642,18 +1675,16 @@ const Course = () => {
                     navbarElement={<ArrowLeft size={15} />}
                   />
                 </div>
-
-                
               </React.Fragment>
-        </div>:null
-        }
+            </div>
+          ) : null}
 
           <div
             style={{
-              position:"absolute",
+              position: "absolute",
               // bottom: 10,
               right: 40,
-              bottom:40,
+              bottom: 40,
 
               display: "flex",
               flexDirection: "row-reverse",
@@ -1664,7 +1695,7 @@ const Course = () => {
               onClick={() => {
                 if (isQuiz) window.location.href = `/createQuiz/${courseID}`;
               }}
-              className ="btn btn-new"
+              className="btn btn-new"
             >
               <p
                 style={{
@@ -1683,7 +1714,7 @@ const Course = () => {
             <button
               style={{ boxShadow: "none", backgroundColor: "transparent" }}
               onClick={closeModal}
-              className = "btn btn-new"
+              className="btn btn-new"
             >
               <p
                 style={{
