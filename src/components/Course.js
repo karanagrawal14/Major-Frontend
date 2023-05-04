@@ -312,7 +312,7 @@ const Course = () => {
       let attendenceData = {
         course_id: courseID,
         date: attendenceDate,
-        is_attendance: isAttendance,
+        teacher_id : courseInfo.teacher_id
       };
       Axios.post("http://localhost:8000/api/attendence", attendenceData).then((res)=>{
         console.log(res);
