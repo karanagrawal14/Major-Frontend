@@ -6,8 +6,10 @@ import {
   Media,
   CardImg,
 } from "reactstrap";
-import hod from "./assets/hodsir.jpg";
+import hod from "./assets/ppbansod.jpg";
+import dkmishrasir from "./assets/hodsir.jpg";
 // import dk from './assets/dkmishra.jpg'
+
 import ppbansod from './assets/ppbansod.jpg';
 import dsajnar from './assets/dsajnar.jpg';
 import khatrisir from './assets/khatrisir.jpg';
@@ -106,13 +108,13 @@ function About(props) {
             <CardBody className="buddy">
               <dl className="row p-1">
                 <dt className="col-12">
-                  <i class="fa fa-user"></i>:<a href="https://www.sgsits.ac.in/files/downloads/DKMishra.pdf"><b> Mr. D.K. Mishra</b></a>
+                  <i class="fa fa-user"></i>:<a href="https://www.sgsits.ac.in/files/downloads/DKMishra.pdf"><b> Dr. P. P. Bansod</b></a>
                 </dt>
                 <dt className="col-12">
-                  <i class="fa fa-envelope"></i>:<a href="mailto:dmishra@sgsits.ac.in"> dmishra@sgsits.ac.in</a>
+                  <i class="fa fa-envelope"></i>:<a href="mailto:pbansod@sgsits.ac.in"> pbansod@sgsits.ac.in</a>
                 </dt>
                 <dt className="col-12">
-                  <i class="fa fa-phone"></i>:<a href="tel:091-731-2582428"> 091-731-2582428</a>
+                  <i class="fa fa-phone"></i>:<a href="tel:091-731-2582421"> 091-731-2582421</a>
                 </dt>
               </dl>
             </CardBody>
@@ -175,7 +177,7 @@ function About(props) {
                 <a href="https://www.sgsits.ac.in/files/downloads/DKMishra.pdf"><Media 
                   object
                   className="mr-2 fimage"
-                  src={hod}
+                  src={dkmishrasir}
                    alt="Dr. D. K. Mishra"
                 /></a>
               </Media>

@@ -61,7 +61,7 @@ let user = localdata
         React.useEffect(() => {
             let loc = window.location.href.split("/");
             let attendenceId = loc[loc.length - 1];
-            Axios.get(`https://major-backend.onrender.com/api/attendence/${attendenceId}`).then((res) => {
+            Axios.get(`http://localhost:8000/api/attendence/${attendenceId}`).then((res) => {
               if (res.data.success) {
                 setattendenceInfo(res.data.data);
                 setIsActive(res.data.data.is_active);
@@ -73,7 +73,7 @@ let user = localdata
           let loc = window.location.href.split("/");
           let attendenceId = loc[loc.length - 1];
           if (userType === "student") {
-            Axios.get(`https://major-backend.onrender.com/api/attendence/hasSubmitted/${attendenceId}/${user._id}`).then((res) => {
+            Axios.get(`http://localhost:8000/api/attendence/hasSubmitted/${attendenceId}/${user._id}`).then((res) => {
               if (res.data.data) {
                 setHasSubmitted(true);
               }
@@ -85,7 +85,7 @@ let user = localdata
           window.scroll({ top: 0, left: 0, behavior: "smooth" });
           let loc = window.location.href.split("/");
           let attendenceId = loc[loc.length - 1];
-          Axios.get(`https://major-backend.onrender.com/api/attendenceResult/${attendenceId}`).then((res) => {
+          Axios.get(`http://localhost:8000/api/attendenceResult/${attendenceId}`).then((res) => {
             if (res.data.success) {
               setAttendenceResults(res.data.data);
             }
@@ -111,7 +111,7 @@ let user = localdata
               return toast.error("Attendence submission is closed");
             }
           }
-          Axios.post("https://major-backend.onrender.com/api/submitAttendence", attendenceResponse)
+          Axios.post("http://localhost:8000/api/submitAttendence", attendenceResponse)
             .then((res) => {
               if (res.data.success) {
               } else {
@@ -126,7 +126,7 @@ let user = localdata
           let loc = window.location.href.split("/");
           let attendenceId= loc[loc.length - 1];
           forceUpdate();
-          Axios.post(`https://major-backend.onrender.com/api/startAttendence/${attendenceId}`).then((res) => {
+          Axios.post(`http://localhost:8000/api/startAttendence/${attendenceId}`).then((res) => {
             if (res.data.success) {
             }
           });
@@ -137,7 +137,7 @@ let user = localdata
           let loc = window.location.href.split("/");
           let attendenceId= loc[loc.length - 1];
           forceUpdate();
-          Axios.post(`https://major-backend.onrender.com/api/endAttendence/${attendenceId}`).then((res) => {
+          Axios.post(`http://localhost:8000/api/endAttendence/${attendenceId}`).then((res) => {
             if (res.data.success) {
             }
           });

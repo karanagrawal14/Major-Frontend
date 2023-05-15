@@ -49,7 +49,7 @@ class Extra extends React.Component {
     this.setState({ author: e.target.value });
   }
   addCopy(id) {
-    fetch(`https://major-backend.onrender.com/addcopies/${id}`).then((error, res) => {
+    fetch(`http://localhost:8000/addcopies/${id}`).then((error, res) => {
       this.getArticles();
     });
   }
@@ -69,7 +69,7 @@ class Extra extends React.Component {
       data.pub_year != "" &&
       data.copies != ""
     ) {
-      axios.post("https://major-backend.onrender.com/addbook", data).then((error, res) => {
+      axios.post("http://localhost:8000/addbook", data).then((error, res) => {
         this.getArticles();
       });
     }
@@ -102,7 +102,7 @@ class Extra extends React.Component {
       });
   }
   getTopIssued() {
-    fetch("https://major-backend.onrender.com/topissued")
+    fetch("http://localhost:8000/topissued")
       .then((response) => response.json())
       .then((res) =>
         res.data.map((article) => ({
