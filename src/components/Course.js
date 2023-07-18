@@ -185,19 +185,37 @@ const Course = () => {
       .catch((e) => console.log(e));
   }, [courseInfo, modalIsOpen]);
 
+  // React.useEffect(() => {
+  //   let teacher_id = courseInfo.teacher_id;
+  //   Axios.get(`http://localhost:8000/api/teacher/${teacher_id}`)
+  //     .then((res) => {
+  //       if (res.data.success) {
+  //         let teacher = res.data.data;
+  //         setCourseTeacher(teacher);
+  //       } else {
+  //       }
+  //     })
+  //     .catch(() => {});
+  // }, [courseInfo]);
+  //start
   React.useEffect(() => {
-    let teacher_id = courseInfo.teacher_id;
-    Axios.get(`http://localhost:8000/api/teacher/${teacher_id}`)
-      .then((res) => {
-        if (res.data.success) {
-          let teacher = res.data.data;
-          setCourseTeacher(teacher);
-        } else {
-        }
-      })
-      .catch(() => {});
+    if (courseInfo && courseInfo.teacher_id) {
+      let teacher_id = courseInfo.teacher_id;
+      Axios.get(`http://localhost:8000/api/teacher/${teacher_id}`)
+        .then((res) => {
+          if (res.data.success) {
+            let teacher = res.data.data;
+            setCourseTeacher(teacher);
+          } else {
+            // Handle the case when the request was not successful.
+          }
+        })
+        .catch(() => {
+          // Handle errors that occurred during the request.
+        });
+    }
   }, [courseInfo]);
-
+//end
   React.useEffect(() => {
     Axios.get(`http://localhost:8000/api/course/students/${courseID}`)
       .then((res) => {
